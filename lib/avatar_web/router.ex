@@ -22,7 +22,11 @@ defmodule AvatarWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", AvatarWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", AvatarWeb.Api, as: :api do
+    scope "/v1", V1, as: :v1 do
+      pipe_through :api
+
+      get "/random", AvatarController, :random
+    end
+  end
 end
