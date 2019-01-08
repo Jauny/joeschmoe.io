@@ -25,21 +25,18 @@ defmodule Svg do
     collar  = get_random_collar()  |> fill()       |> add_attr("stroke", "black")
     sweater = get_random_sweater() |> fill()       |> add_attr("stroke", "black")
 
-    avatar = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 125 125\">"
-    avatar = avatar <>
-             stringify(head) <>
-             stringify(hair) <>
-             stringify(eyes) <>
-             stringify(mouth) <>
-             stringify(nose) <>
-             stringify(collar) <>
-             stringify(sweater) <>
-             "</svg>"
-    #File.write(Path.expand("./svgs/elixir.svg"), avatar)
-    #avatar
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 125 125\">" <>
+      stringify(head) <>
+      stringify(hair) <>
+      stringify(eyes) <>
+      stringify(mouth) <>
+      stringify(nose) <>
+      stringify(collar) <>
+      stringify(sweater) <>
+    "</svg>"
   end
 
-  def get_element(el_type, id) do
+  def get_element(el_type, _) do
     el_path = Enum.random(Path.wildcard(svg_path() <> "/males/1/" <> el_type <> "/*svg"))
     {:ok, svg} = File.read(Path.expand(el_path))
     Exoml.decode(svg)
@@ -103,18 +100,55 @@ defmodule Svg do
   end
 
   @doc """
-  Adds `attr=value` attribute to the element.
+  Adds attribute attr=key to either the element if it's a leaf element,
+  or all its children recursively, if it's a parent.
   """
   def add_attr(el, key, value) do
-    new_paths = elem(el, 2) |> Enum.map(fn({id, paths, last}) ->
-      {id, Enum.map(paths, fn(attr) ->
-        case attr do
-          {^key, _} -> {key, value}
-          _ -> attr
-        end
-      end), last}
+    case el do
+      {"g", _, _} -> add_attr_to_g(el, key, value)
+      _           -> add_attr_to_el(el, key, value)
+    end
+  end
+
+  @doc """
+  Adds an attribute of key=value to the element.
+  The element can be a "path", "rect", or other SVG leaf.
+  """
+  def add_attr_to_el(el, key, value) do
+    {name, attrs, last} = el
+    attrs = Enum.filter(attrs, fn({name, _}) -> name != key end) ++ [{key, value}]
+    {name, attrs, last}
+  end
+
+  @doc """
+  Adds an attribute of key=value to all children of a group "g".
+  """
+  def add_attr_to_g(g, key, value) when is_bitstring(value) do
+    {name, attrs, children} = g
+
+    children = Enum.map(children, fn(child) ->
+      case child do
+        {"g", _, _} -> add_attr_to_g(child, key, value)
+        _           -> add_attr_to_el(child, key, value)
+      end
     end)
-    put_elem(el, 2, new_paths)
+
+    {name, attrs, children} 
+  end
+
+  def add_attr_to_g(g, key, values) when is_list(values) do
+    {name, attrs, children} = g
+
+    children = children
+    |> Enum.with_index
+    |> Enum.map(fn({child, index}) ->
+      case child do
+        {"g", _, _} -> add_attr_to_g(child, key, values)
+        _           -> add_attr_to_el(child, key, Enum.at(values, index))
+      end
+    end)
+
+    {name, attrs, children} 
   end
 
   @doc """
