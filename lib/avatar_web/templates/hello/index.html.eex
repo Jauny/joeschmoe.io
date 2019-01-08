@@ -1,4 +1,0 @@
-<div class="phx-hero">
-  <h2>Hello ca va?</h2>
-  <img src=<%= @svg %> />
-</div>
