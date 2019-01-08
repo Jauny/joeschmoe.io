@@ -36,10 +36,43 @@ defmodule Svg do
     "</svg>"
   end
 
-  def get_element(el_type, _) do
-    el_path = Enum.random(Path.wildcard(svg_path() <> "/males/1/" <> el_type <> "/*svg"))
-    {:ok, svg} = File.read(Path.expand(el_path))
-    Exoml.decode(svg)
+  @doc """
+  Builds an avatar from the opts passed in.
+  """
+  def build(opts \\ []) do
+    defaults = [
+      gender: "males",
+      base: "1",
+      head: "1",
+      eyes: "1",
+      hair: "1",
+      mouth: "1",
+      nose: "1",
+      collar: "1",
+      sweater: "1"
+    ]
+    opts = Keyword.merge(defaults, opts)
+
+    head = get_element(opts[:gender], opts[:base], "heads", opts[:head])
+    eyes = get_element(opts[:gender], opts[:base], "eyes", opts[:eyes])
+    hair = get_element(opts[:gender], opts[:base], "hairs", opts[:hair])
+    mouth = get_element(opts[:gender], opts[:base], "mouths", opts[:mouth])
+    nose = get_element(opts[:gender], opts[:base], "noses", opts[:nose])
+    collar = get_element(opts[:gender], opts[:base], "collars", opts[:collar])
+    sweater = get_element(opts[:gender], opts[:base], "sweaters", opts[:sweater])
+
+    ["<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 125 125\">"] ++
+    Enum.map([head, eyes, hair, mouth, nose, collar, sweater], fn el ->
+      stringify(el)
+    end) ++ ["</svg>"]
+    |> Enum.join("")
+    
+  end
+
+  def get_element(gender, base, type, index) do
+    path = Path.join([svg_path(), gender, base, type, index]) <> ".svg"
+    {:ok, svg} = File.read(Path.expand(path))
+    get_content(Exoml.decode(svg))
   end
 
   def get_random_element(el_type) do
@@ -158,7 +191,7 @@ defmodule Svg do
     Exoml.encode({:root, [], [el]})
   end
 
-  defp svg_path do
+  def svg_path do
     Path.expand(File.cwd! <> "/assets/static/images/avatars")
   end
 end
