@@ -66,7 +66,6 @@ defmodule Svg do
       stringify(el)
     end) ++ ["</svg>"]
     |> Enum.join("")
-    
   end
 
   def get_element(gender, base, type, index) do
