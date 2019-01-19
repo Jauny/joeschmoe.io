@@ -9,12 +9,6 @@ defmodule Svg do
 
   @doc """
   Generates a random avatar.
-
-  ## Examples
-
-      iex> Svg.random
-      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 125 125\">"...
-
   """
   def random do
     head    = get_random_head()    |> fill()       |> add_attr("stroke", "black")
