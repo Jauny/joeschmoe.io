@@ -1,6 +1,10 @@
 defmodule AvatarWeb.PageView do
   use AvatarWeb, :view
 
+  def random_original do
+    Svg.random_original
+  end
+
   def random_avatar do
     Svg.build(hair: "3",
       eyes: "2",

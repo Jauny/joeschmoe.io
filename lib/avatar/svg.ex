@@ -8,6 +8,28 @@ defmodule Svg do
   require Exoml
 
   @doc """
+  Gets a random, complete avatar from the pool.
+  """
+  def random_original do
+    path = Enum.random(Path.wildcard(originals_path()))
+    {:ok, svg} = File.read(Path.expand(path))
+    svg
+  end
+
+  @doc """
+  Gets an original avatar from a string.
+  Same string always returns the same avatar.
+  """
+  def from_string(string) do
+    originals = Path.wildcard(originals_path())
+    index = string |> to_charlist |> Enum.reduce(fn el, acc -> el + acc end) |> 
+            rem(length(originals))
+
+    {:ok, svg} = File.read(Enum.at(originals, index))
+    svg
+  end
+
+  @doc """
   Generates a random avatar.
   """
   def random do
@@ -186,6 +208,10 @@ defmodule Svg do
 
   def svg_path do
     Path.expand(File.cwd! <> "/assets/static/images/avatars")
+  end
+
+  def originals_path do
+    svg_path() <> "/all/" <> "/*.svg"
   end
 end
 

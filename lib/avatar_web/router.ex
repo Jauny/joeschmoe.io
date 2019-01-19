@@ -25,7 +25,8 @@ defmodule AvatarWeb.Router do
       pipe_through :api
 
       get "/random", AvatarController, :random
-      get "/:email", AvatarController, :from_email
+      get "/random_original:filetype", AvatarController, :random_original
+      get "/:email", AvatarController, :from_email_original
     end
   end
 end
