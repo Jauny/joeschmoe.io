@@ -11,7 +11,7 @@ defmodule Svg do
   Gets a random, complete avatar from the pool.
   """
   def random_original do
-    path = Enum.random(Path.wildcard(originals_path()))
+    path = Enum.random(originals_path())
     {:ok, svg} = File.read(Path.expand(path))
     svg
   end
@@ -206,12 +206,20 @@ defmodule Svg do
     Exoml.encode({:root, [], [el]})
   end
 
+  def originals_path do
+    Path.wildcard(originals_males_path()) ++ Path.wildcard(originals_females_path())
+  end
+
   def svg_path do
     Path.expand(File.cwd! <> "/assets/static/images/avatars")
   end
 
-  def originals_path do
-    svg_path() <> "/all/" <> "/*.svg"
+  def originals_males_path do
+    svg_path() <> "/all/males" <> "/*.svg"
+  end
+
+  def originals_females_path do
+    svg_path() <> "/all/females" <> "/*.svg"
   end
 end
 
