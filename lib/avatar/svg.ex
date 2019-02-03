@@ -17,6 +17,20 @@ defmodule Svg do
   end
 
   @doc """
+  Gets a random, complete avatar from the <gender> pool.
+  """
+  def random_gender(gender) do
+    paths = case gender do
+      "male"   -> originals_males_path()
+      "female" -> originals_females_path()
+      _        -> originals_path()
+    end
+    path = Enum.random(paths)
+    {:ok, svg} = File.read(Path.expand(path))
+    svg
+  end
+
+  @doc """
   Gets an original avatar from a string.
   Same string always returns the same avatar.
   """
@@ -206,20 +220,20 @@ defmodule Svg do
     Exoml.encode({:root, [], [el]})
   end
 
-  def originals_path do
-    Path.wildcard(originals_males_path()) ++ Path.wildcard(originals_females_path())
-  end
-
   def svg_path do
     Path.expand(File.cwd! <> "/assets/static/images/avatars")
   end
 
+  def originals_path do
+    originals_males_path() ++ originals_females_path()
+  end
+
   def originals_males_path do
-    svg_path() <> "/originals/males" <> "/*.svg"
+    Path.wildcard(svg_path() <> "/originals/males" <> "/*.svg")
   end
 
   def originals_females_path do
-    svg_path() <> "/originals/females" <> "/*.svg"
+    Path.wildcard(svg_path() <> "/originals/females" <> "/*.svg")
   end
 end
 

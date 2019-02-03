@@ -8,6 +8,13 @@ defmodule AvatarWeb.Api.V1.AvatarController do
     |> send_resp(200, svg)
   end
 
+  def random_gender(conn, %{"gender" => gender}) do
+    svg = Svg.random_gender(gender)
+    conn = conn
+    |> put_resp_content_type("image/svg+xml")
+    |> send_resp(200, svg)
+  end
+
   def random(conn, _params) do
     svg = Svg.random
     conn = conn
