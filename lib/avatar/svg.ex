@@ -215,11 +215,11 @@ defmodule Svg do
   end
 
   def originals_males_path do
-    svg_path() <> "/all/males" <> "/*.svg"
+    svg_path() <> "/originals/males" <> "/*.svg"
   end
 
   def originals_females_path do
-    svg_path() <> "/all/females" <> "/*.svg"
+    svg_path() <> "/originals/females" <> "/*.svg"
   end
 end
 
