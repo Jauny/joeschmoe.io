@@ -225,7 +225,7 @@ defmodule Svg do
   end
 
   def find_original_from_name(originals, name) do
-    Enum.find(originals, fn path -> String.contains?(path, name) end)
+    Enum.find(originals, fn path -> String.contains?(path, "#{name}.svg") end)
   end
 
   def find_original_from_string(originals, string) do
