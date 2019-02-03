@@ -36,10 +36,14 @@ defmodule Svg do
   """
   def from_string(string) do
     originals = originals_path()
-    index = string |> to_charlist |> Enum.reduce(fn el, acc -> el + acc end) |> 
-            rem(length(originals))
 
-    {:ok, svg} = File.read(Enum.at(originals, index))
+    original = 
+      # check if string is an original's name
+      find_original_from_name(originals, string) || 
+      # if not, reduce string to a valid index
+      find_original_from_string(originals, string)
+
+    {:ok, svg} = File.read(original)
     svg
   end
 
@@ -218,6 +222,16 @@ defmodule Svg do
   """
   def stringify(el) do
     Exoml.encode({:root, [], [el]})
+  end
+
+  def find_original_from_name(originals, name) do
+    Enum.find(originals, fn path -> String.contains?(path, name) end)
+  end
+
+  def find_original_from_string(originals, string) do
+    index = string |> to_charlist |> Enum.reduce(fn el, acc -> el + acc end) |> 
+            rem(length(originals))
+    Enum.at(originals, index)
   end
 
   def svg_path do
