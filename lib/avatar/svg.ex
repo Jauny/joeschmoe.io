@@ -35,7 +35,7 @@ defmodule Svg do
   Same string always returns the same avatar.
   """
   def from_string(string) do
-    originals = Path.wildcard(originals_path())
+    originals = originals_path()
     index = string |> to_charlist |> Enum.reduce(fn el, acc -> el + acc end) |> 
             rem(length(originals))
 
