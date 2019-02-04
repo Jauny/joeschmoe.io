@@ -6,7 +6,7 @@
 
   <div class="hero__cta">
     <a href="#sandbox" class="btn">Try the tool</a>
-    <h3><a href="#">wtf is this?</a></h3>
+    <h3><a href="#wtf">wtf is this?</a></h3>
   </div>
 
   <div class="scroll"><div class="arrow arrow--down"></div></div>
@@ -15,7 +15,7 @@
 <section class="sandbox" id="sandbox">
   <h2>get a schmoe</h2>
   <div class="two-cols">
-    <div class="two-cols__col">
+    <div class="two-cols__col col--flex-end">
       <form>
         <label for="sandbox__input">identifier</label>
         <div class="input">
@@ -34,6 +34,42 @@
 </section>
 
 <section class="meet">
+</section>
+
+<section class="wtf" id="wtf">
+  <h2>wtf is this?</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+  <div class="two-cols">
+    <div class="two-cols__col">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+ea commodo consequat.
+    </div>
+    <div class="two-cols__col">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+ea commodo consequat.
+    </div>
+  </div>
+</section>
+
+<section class="originals">
+  <div class="originals__all">
+    <%= for original <- Enum.shuffle(all_originals) do %>
+      <div class="originals__original">
+        <img src="<%= original %>" />
+        <p>
+          www.url.com/api/v1/<span><%=
+            String.split(original, "/") |>
+            Enum.at(-1) |>
+            String.split(".") |>
+            Enum.at(0)
+          %></span>
+        </p>
+      </div>
+    <% end %>
+  </div>
 </section>
 
 <script>
