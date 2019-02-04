@@ -11,6 +11,12 @@ html {
   --red: #F44711;
   --beige: #F2EFEA;
   --grey: #818181;
+  --section-gutter: 100px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
 }
 
 /*
@@ -51,6 +57,7 @@ h3 {
  * ELEMENTS
  */
 a {
+  cursor: pointer;
   color: var(--red);
   text-decoration: none;
 }
@@ -118,12 +125,23 @@ input:focus {
 /*
  * SECTIONS
  */
+section {
+  padding-top: var(--section-gutter);
+  padding-bottom: var(--section-gutter);
+}
+
 .hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
   text-align: center;
+}
+.hero .scroll {
+  width: 100%;
+  position: absolute;
+  bottom: 100px;
+  margin: auto;
 }
 
 section h1, section h2, section h3 {
@@ -133,9 +151,8 @@ section h1, section h2, section h3 {
 .sandbox .two-cols__col {
   flex: 0 0 40%;
 }
-.sandbox__button {
-  display: inline-block;
-  margin-left: auto;
+.sandbox form {
+  margin-top: 50px;
 }
 .sandbox__img {
   text-align: center;
@@ -143,5 +160,10 @@ section h1, section h2, section h3 {
 .sandbox__img img {
   max-width: 300px;
   border: 1px solid black;
+  background-color: var(--beige);
+}
+
+.meet {
+  height: 300px;
   background-color: var(--beige);
 }

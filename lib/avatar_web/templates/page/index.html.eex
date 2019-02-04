@@ -9,7 +9,7 @@
     <h3><a href="#">wtf is this?</a></h3>
   </div>
 
-  <a href="#sandbox"><div class="arrow arrow--down"></div></a>
+  <a href="#sandbox" class="scroll"><div class="arrow arrow--down"></div></a>
 </div>
 
 <section class="sandbox" id="sandbox">
@@ -31,7 +31,10 @@
       <img id="sandbox__img" src="/api/v1/originals/random" />
     </div>
   </div>
-</div>
+</section>
+
+<section class="meet">
+</section>
 
 <script>
   const onInputKeyup = (id) => {
