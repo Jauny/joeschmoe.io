@@ -103,17 +103,24 @@ label {
   font-size: 0.5rem;
   color: var(--grey);
 }
+.input-wrapper label {
+  display: block;
+  margin-bottom: -15px;
+}
 .input {
   display: flex;
   border-bottom: 2px solid black;
   height: 2rem;
   margin-bottom: 1rem;
 }
-.input__before {
+.input__before, .input__fake {
   height: 100%;
   font-family: monospace, monospace;
   font-size: 0.8rem;
   line-height: 2rem;
+}
+.input__fake {
+  color: var(--red);
 }
 input {
   height: 1.9rem;
@@ -181,8 +188,20 @@ section h1, section h2, section h3 {
 }
 
 .meet {
-  height: 300px;
   background-color: var(--beige);
+  padding-bottom: 0;
+}
+.meet .two-cols__col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.meet img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50%;
 }
 
 .originals__all {
