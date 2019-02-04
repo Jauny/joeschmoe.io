@@ -1,3 +1,134 @@
 /* This file is for your main application css. */
 
-@import "./phoenix.css";
+/* @import "./phoenix.css"; */
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700');
+
+/*
+ * VARIABLES
+ */
+html {
+  --red: #F44711;
+  --beige: #F2EFEA;
+  --grey: #818181;
+}
+
+/*
+ * DOCUMENT
+ */
+html {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 24px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.two-cols {
+  display: flex;
+  justify-content: center;
+}
+.two-cols__col {
+  flex: 1 1 50%;
+}
+
+/*
+ * ELEMENTS
+ */
+a {
+  color: var(--red);
+  text-decoration: none;
+}
+a.btn {
+  background-color: var(--red);
+  color: white;
+  border-radius: 500px;
+  padding: 10px 30px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+.arrow {
+  content: '';
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  width: 65px;
+  height: 65px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.arrow--down {
+  transform: rotate(-135deg);
+}
+
+form {
+  position: relative;
+}
+form a {
+  position: absolute;
+  right: 0;
+}
+
+label {
+  font-size: 0.5rem;
+  color: var(--grey);
+}
+.input {
+  border-bottom: 2px solid black;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+.input:before {
+  content: 'www.url.com/api/v1/';
+  font-family: monospace, monospace;
+  font-size: 0.8rem;
+}
+input {
+  font-size: 0.8rem;
+  font-family: monospace, monospace;
+  color: var(--red);
+  border: none;
+}
+input:focus {
+  outline: none;
+}
+
+/*
+ * SECTIONS
+ */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+section h1, section h2, section h3 {
+  text-align: center;
+}
+
+.sandbox .two-cols__col {
+  flex: 0 0 40%;
+}
+.sandbox__button {
+  display: inline-block;
+  margin-left: auto;
+}
+.sandbox__img {
+  text-align: center;
+}
+.sandbox__img img {
+  max-width: 300px;
+  border: 1px solid black;
+  background-color: var(--beige);
+}
