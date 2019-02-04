@@ -9,7 +9,7 @@
     <h3><a href="#">wtf is this?</a></h3>
   </div>
 
-  <a href="#sandbox" class="scroll"><div class="arrow arrow--down"></div></a>
+  <div class="scroll"><div class="arrow arrow--down"></div></div>
 </div>
 
 <section class="sandbox" id="sandbox">
@@ -20,7 +20,7 @@
         <label for="sandbox__input">identifier</label>
         <div class="input">
           <span class="input__before">http://url.com/api/v1/</span>
-          <input autocomplete="off" id="sandbox__input" onkeyup="onInputKeyup('#sandbox')" type="text" placeholder="<hi>" />
+          <input autocomplete="off" id="sandbox__input" onkeyup="onInputKeyup('#sandbox')" type="text" placeholder="<seed>" />
           <input id="sandbox__hidden" class="hidden" />
         </div>
         <a class="btn" onClick="copyInputValue('#sandbox')">Copy</a>
