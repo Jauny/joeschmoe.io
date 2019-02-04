@@ -5,7 +5,7 @@
   </div>
 
   <div class="hero__cta">
-    <a class="btn">Try the tool</a>
+    <a href="#sandbox" class="btn">Try the tool</a>
     <h3><a href="#">wtf is this?</a></h3>
   </div>
 
@@ -17,16 +17,48 @@
   <div class="two-cols">
     <div class="two-cols__col">
       <form>
-        <label for="identifier">identifier</label>
+        <label for="sandbox__input">identifier</label>
         <div class="input">
-          <input id="identifier" type="text" value="<hi>" />
+          <span class="input__before">http://url.com/api/v1/</span>
+          <input autocomplete="off" id="sandbox__input" onkeyup="onInputKeyup('#sandbox')" type="text" placeholder="<hi>" />
+          <input id="sandbox__hidden" class="hidden" />
         </div>
-        <a class="btn">Copy</a>
+        <a class="btn" onClick="copyInputValue('#sandbox')">Copy</a>
       </form>
     </div>
 
     <div class="two-cols__col sandbox__img">
-      <img src="/api/v1/originals/random" />
+      <img id="sandbox__img" src="/api/v1/originals/random" />
     </div>
   </div>
 </div>
+
+<script>
+  const onInputKeyup = (id) => {
+    updateHiddenInputValue(id)
+    updateImage(id)
+  }
+
+  const updateHiddenInputValue = (id) => {
+    const input = document.querySelector(id + '__input')
+    const hidden = document.querySelector(id + '__hidden')
+
+    hidden.value = '/api/v1/originals/' + input.value
+  }
+
+  const updateImage = (id) => {
+    const input = document.querySelector(id + '__input')
+    const img = document.querySelector(id + '__img')
+    img.src = '/api/v1/originals/' + (input.value.length ? input.value : 'random')
+  }
+
+  const copyInputValue = (id) => {
+    const input = document.querySelector(id + '__input')
+    const hidden = document.querySelector(id + '__hidden')
+    if (input.value.length === 0) {
+      hidden.value += 'random'
+    }
+    hidden.select()
+    document.execCommand('copy')
+  }
+</script>

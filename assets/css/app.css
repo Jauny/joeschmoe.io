@@ -33,6 +33,12 @@ h3 {
   font-weight: normal;
 }
 
+.hidden {
+  position: absolute;
+  opacity: 0;
+  z-index: -999;
+}
+
 .two-cols {
   display: flex;
   justify-content: center;
@@ -83,20 +89,27 @@ label {
   color: var(--grey);
 }
 .input {
+  display: flex;
   border-bottom: 2px solid black;
   height: 2rem;
   margin-bottom: 1rem;
 }
-.input:before {
-  content: 'www.url.com/api/v1/';
+.input__before {
+  height: 100%;
   font-family: monospace, monospace;
   font-size: 0.8rem;
+  line-height: 2rem;
 }
 input {
+  height: 1.9rem;
   font-size: 0.8rem;
   font-family: monospace, monospace;
   color: var(--red);
   border: none;
+  background-color: transparent;
+}
+input::placeholder {
+  color: var(--red);
 }
 input:focus {
   outline: none;
