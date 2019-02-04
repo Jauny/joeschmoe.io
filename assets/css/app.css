@@ -136,11 +136,14 @@ section {
   justify-content: center;
   height: 100vh;
   text-align: center;
+  background-image: url("/images/hero_bg.svg");
+  background-size: cover;
+  background-position: center;
 }
 .hero .scroll {
   width: 100%;
   position: absolute;
-  bottom: 100px;
+  bottom: 50px;
   margin: auto;
 }
 
