@@ -11,8 +11,15 @@ use Mix.Config
 # before starting your production server.
 config :avatar, AvatarWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "example.com", port: 80],
+  url: [host: "fathomless-wave-60767.herokuapp.com", port: System.get_env("PORT")],
   cache_static_manifest: "priv/static/cache_manifest.json"
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
+
+# Configure your database
+config :hello, Hello.Repo,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -68,4 +75,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"
