@@ -87,7 +87,7 @@ ea commodo consequat.
       <div class="originals__original">
         <img src="<%= original %>" />
         <p>
-          www.url.com/api/v1/<span><%=
+          <span><%=
             String.split(original, "/") |>
             Enum.at(-1) |>
             String.split(".") |>

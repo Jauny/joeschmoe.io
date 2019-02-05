@@ -28,6 +28,11 @@ body {
   margin: 0;
   line-height: 1.7rem;
 }
+@media only screen and (max-width: 1024px) {
+  body > * {
+    padding: 0 10px;
+  }
+}
 
 h1 {
   font-size: 2.4rem;
@@ -59,6 +64,19 @@ h3 {
 .col--flex-end {
   display: flex;
   justify-content: flex-end;
+}
+@media only screen and (max-width: 1024px) {
+  .two-cols {
+    flex-direction: column;
+  }
+  .two-cols__col {
+    width: 100%;
+    justify-content: center;
+  }
+  .two-cols__col:first-child {
+    margin-right: 0;
+    margin-bottom: 100px;
+  }
 }
 
 /*
@@ -124,6 +142,7 @@ label {
 }
 input {
   height: 1.9rem;
+  width: 50%;
   font-size: 0.8rem;
   font-family: monospace, monospace;
   color: var(--red);
@@ -149,6 +168,11 @@ section > * {
   margin-left: auto;
   margin-right: auto;
 }
+@media only screen and (max-width: 1024px) {
+  section {
+    padding-top: calc(var(--section-gutter)/2);
+  }
+}
 
 .hero {
   display: flex;
@@ -161,7 +185,7 @@ section > * {
   background-position: center;
 }
 .hero .scroll {
-  width: 100%;
+  width: calc(100vw - 30px);
   position: absolute;
   bottom: 50px;
   margin: auto;
@@ -204,6 +228,12 @@ section h1, section h2, section h3 {
   height: 50%;
 }
 
+@media only screen and (max-width: 1024px) {
+  .wtf .two-cols__col:first-child {
+    margin-bottom: 20px;
+  }
+}
+
 .originals__all {
   display: flex;
   justify-content: space-between;
@@ -212,8 +242,12 @@ section h1, section h2, section h3 {
 .originals__all > * {
   width: 30%;
 }
+.originals__original img {
+  width: 100%;
+}
 .originals__original p {
   text-align: center;
+  overflow: hidden;
 }
 .originals__original span {
   color: var(--red);
