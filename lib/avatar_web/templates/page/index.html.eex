@@ -15,7 +15,7 @@
 <section class="sandbox" id="sandbox">
   <h2>get a schmoe</h2>
   <div class="two-cols">
-    <div class="two-cols__col col--flex-end">
+    <div class="two-cols__col">
       <form>
         <div class="input-wrapper">
           <label for="sandbox__input">identifier</label>
@@ -81,7 +81,56 @@ ea commodo consequat.
   </div>
 </section>
 
+<section class="documentation">
+  <h2>Documentation</h2>
+  <p>There are multiple ways you can query for a Schmoe.</p>
+
+  <p class="small italic">All queries are prepended with http://www.url.com</p>
+
+  <h4>Get a Schmoe from a seed</h4>
+  <div class="two-cols doc">
+    <div class="two-cols__col col--ar">
+      <p class="small">Get a Schmoe from :seed. The same seed always returns the same Schmoe.</p>
+    </div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>:seed</span></pre>
+    </div>
+  </div>
+
+  <h4>Get a random Schmoe</h4>
+  <p>You can query a random Schmoe from all of them, or from females or males only.</p>
+    <div class="two-cols doc">
+      <div class="two-cols__col">Get a random Schmoe</div>
+      <div class="two-cols__col">
+        <pre>/api/v1/<span>random</span></pre>
+      </div>
+    </div>
+
+    <div class="two-cols doc">
+      <div class="two-cols__col">Get a random female Schmoe</div>
+      <div class="two-cols__col">
+        <pre>/api/v1/<span>originals/female/random</span></pre>
+      </div>
+    </div>
+
+    <div class="two-cols doc">
+      <div class="two-cols__col">Get a random male Schmoe</div>
+      <div class="two-cols__col">
+        <pre>/api/v1/<span>originals/male/random</span></pre>
+      </div>
+    </div>
+
+  <h4>Get a specific Schmoe</h4>
+  <div class="two-cols doc">
+    <div class="two-cols__col">Get the Schmoe named Jon.</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>jon</span></pre>
+    </div>
+  </div>
+</section>
+
 <section class="originals">
+  <h2>All the Schmoes!</h2>
   <div class="originals__all">
     <%= for original <- Enum.shuffle(all_originals) do %>
       <div class="originals__original">

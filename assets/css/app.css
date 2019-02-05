@@ -8,6 +8,7 @@
  * VARIABLES
  */
 html {
+  --blue: #073E75;
   --red: #F44711;
   --beige: #F2EFEA;
   --grey: #818181;
@@ -44,7 +45,29 @@ h3 {
   font-size: 1.5rem;
   font-weight: normal;
 }
+h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+pre {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
+  background-color: var(--beige);
+  color: var(--blue);
+}
+pre span {
+  color: var(--red);
+}
 
+.small {
+  font-size: 0.8rem;
+}
+.italic {
+  font-style: italic;
+}
 .hidden {
   position: absolute;
   opacity: 0;
@@ -61,10 +84,6 @@ h3 {
 .two-cols__col:first-child {
   margin-right: 50px;
 }
-.col--flex-end {
-  display: flex;
-  justify-content: flex-end;
-}
 @media only screen and (max-width: 1024px) {
   .two-cols {
     flex-direction: column;
@@ -75,7 +94,6 @@ h3 {
   }
   .two-cols__col:first-child {
     margin-right: 0;
-    margin-bottom: 100px;
   }
 }
 
@@ -120,10 +138,13 @@ form a {
 label {
   font-size: 0.5rem;
   color: var(--grey);
-}
-.input-wrapper label {
   display: block;
   margin-bottom: -15px;
+}
+.input-wrapper {
+  width: 400px;
+  max-width: 100%;
+  margin: auto;
 }
 .input {
   display: flex;
@@ -156,12 +177,13 @@ input:focus {
   outline: none;
 }
 @media only screen and (max-width: 1024px) {
-  .input-wrapper {
-    max-width: 500px;
-    margin: auto;
-    min-width: 80%;
-    width: 100%;
-  }
+}
+
+table {
+  width: 100%;
+}
+table tr td {
+  width: 50%;
 }
 
 /*
@@ -179,6 +201,7 @@ section > * {
 @media only screen and (max-width: 1024px) {
   section {
     padding-top: calc(var(--section-gutter)/2);
+    padding-bottom: calc(var(--section-gutter)/2);
   }
 }
 
@@ -207,8 +230,10 @@ section h1, section h2, section h3 {
   flex: 0 0 40%;
 }
 .sandbox form {
-  max-width: 500px;
+  max-width: 400px;
   margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .sandbox__img {
   text-align: center;
@@ -217,6 +242,11 @@ section h1, section h2, section h3 {
   max-width: 300px;
   border: 1px solid black;
   background-color: var(--beige);
+}
+@media only screen and (max-width: 1024px) {
+  .sandbox__img {
+    margin-top: var(--section-gutter);
+  }
 }
 
 .meet {
@@ -235,14 +265,33 @@ section h1, section h2, section h3 {
   width: 50%;
   height: 50%;
 }
-.meet .input-wrapper {
-  width: 80%;
-  margin: auto;
+@media only screen and (min-width: 1025px) {
+  .meet .input-wrapper {
+    max-width: 80%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .meet .two-cols__col:first-child {
+    margin-bottom: 100px;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
   .wtf .two-cols__col:first-child {
     margin-bottom: 20px;
+  }
+}
+
+.documentation .doc {
+  margin-bottom: calc(var(--section-gutter) / 2);
+  font-size: 0.8rem;
+}
+.documentation .doc p {
+  margin-top: 0;
+}
+@media only screen and (max-width: 1024px) {
+  .documentation .doc-cols {
+    margin-bottom: calc(var(--section-gutter) / 2);
   }
 }
 
