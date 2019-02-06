@@ -30,7 +30,7 @@
     </div>
 
     <div class="two-cols__col sandbox__img">
-      <img id="sandbox__img" src="/api/v1/originals/random" />
+      <img id="sandbox__img" src="/api/v1/random" />
     </div>
   </div>
 </section>
@@ -46,7 +46,7 @@
           <span class="input__fake">jess</span>
         </div>
       </div>
-      <img src="/api/v1/originals/jess" />
+      <img src="/api/v1/jess" />
     </div>
 
     <div class="two-cols__col">
@@ -58,7 +58,7 @@
           <span class="input__fake">jon</span>
         </div>
       </div>
-      <img src="/api/v1/originals/jon" />
+      <img src="/api/v1/jon" />
     </div>
   </div>
 </section>
@@ -153,13 +153,13 @@ ea commodo consequat.
     const input = document.querySelector(id + '__input')
     const hidden = document.querySelector(id + '__hidden')
 
-    hidden.value = '/api/v1/originals/' + input.value
+    hidden.value = '/api/v1/' + input.value
   }
 
   const updateImage = (id) => {
     const input = document.querySelector(id + '__input')
     const img = document.querySelector(id + '__img')
-    img.src = '/api/v1/originals/' + (input.value.length ? input.value : 'random')
+    img.src = '/api/v1/' + (input.value.length ? input.value : 'random')
   }
 
   const copyInputValue = (id) => {
