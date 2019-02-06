@@ -132,14 +132,6 @@ ea commodo consequat.
 <section class="originals">
   <h2>All the Schmoes!</h2>
   <div class="originals__all">
-    <%= for original <- Enum.shuffle(all_originals) do %>
-      <div class="originals__original">
-        <%= raw(original.svg) %>
-        <p>
-          <span><%= original.name %></span>
-        </p>
-      </div>
-    <% end %>
   </div>
 </section>
 
