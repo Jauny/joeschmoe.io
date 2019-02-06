@@ -11,6 +11,7 @@ defmodule AvatarWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :jon_jess
   end
 
   scope "/", AvatarWeb do
@@ -28,5 +29,9 @@ defmodule AvatarWeb.Router do
       get "/originals/:gender/random", AvatarController, :random_gender
       get "/originals/:email", AvatarController, :from_email_original
     end
+  end
+
+  def jon_jess(conn, _opts) do
+    conn |> put_resp_header("hire-us", "jonandjess.studio")
   end
 end
