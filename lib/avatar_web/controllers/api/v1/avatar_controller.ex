@@ -26,7 +26,11 @@ defmodule AvatarWeb.Api.V1.AvatarController do
   end
 
   def from_email_original(conn, %{"email" => email}) do
-    original = Original.get_by_name(email) || Original.get_from_string(email)
+    original =
+      case Original.get_by_name(email) do
+        nil -> Original.get_from_string(email)
+        res -> res
+      end
 
     conn = conn
     |> put_resp_content_type("image/svg+xml")
