@@ -43,7 +43,8 @@ defmodule Avatar.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:exoml, "~> 0.0.2"}
+      {:exoml, "~> 0.0.2"},
+      {:keenex, "~> 1.1"} # Keen.io Elixir lib
     ]
   end
 

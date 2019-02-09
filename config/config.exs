@@ -22,6 +22,17 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Configures Kennex, the Keen.io lib
+config :keenex,
+  project_id: System.get_env("KEEN_PROJECT_ID"),
+  read_key:   System.get_env("KEEN_READ_KEY"),
+  write_key:  System.get_env("KEEN_WRITE_KEY"),
+  httpoison_opts: [timeout: 5000]  # defaults to []
+
+# by default, we dont track events
+config :avatar, :event,
+  active: false
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
