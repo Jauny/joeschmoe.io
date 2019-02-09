@@ -31,6 +31,12 @@ defmodule AvatarWeb.Router do
       get "/:gender/random", AvatarController, :random_gender
       get "/:email", AvatarController, :from_email_original
     end
+
+    scope "/local", V1 do
+      get "/random", AvatarController, :random_original
+      get "/:gender/random", AvatarController, :random_gender
+      get "/:email", AvatarController, :from_email_original
+    end
   end
 
   def jon_jess(conn, _opts) do
