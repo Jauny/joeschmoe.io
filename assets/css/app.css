@@ -62,6 +62,12 @@ pre span {
   color: var(--red);
 }
 
+.text--grey {
+  color: var(--grey);
+}
+.text--blue {
+  color: var(--blue);
+}
 .small {
   font-size: 0.8rem;
 }
