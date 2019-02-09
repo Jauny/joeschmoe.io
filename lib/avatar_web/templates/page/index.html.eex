@@ -117,14 +117,14 @@ ea commodo consequat.
     <div class="two-cols doc">
       <div class="two-cols__col">Get a random female Schmoe</div>
       <div class="two-cols__col">
-        <pre>/api/v1/<span>originals/female/random</span></pre>
+        <pre>/api/v1/<span>female/random</span></pre>
       </div>
     </div>
 
     <div class="two-cols doc">
       <div class="two-cols__col">Get a random male Schmoe</div>
       <div class="two-cols__col">
-        <pre>/api/v1/<span>originals/male/random</span></pre>
+        <pre>/api/v1/<span>male/random</span></pre>
       </div>
     </div>
 
