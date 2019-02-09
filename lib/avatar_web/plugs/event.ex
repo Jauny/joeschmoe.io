@@ -17,10 +17,10 @@ defmodule AvatarWeb.Plugs.Event do
       "path_info": conn.path_info,
       "port": conn.port,
       "query_string": conn.query_string,
-      "remote_ip": conn.remote_ip |> Tuple.to_list |> Enum.join("."),
       "request_path": conn.request_path,
       "req_headers": headers,
       "user_agent": headers["user-agent"],
+      "remote_ip": headers["x-forwarded-for"],
 
       "keen": %{
         "addons": [%{
