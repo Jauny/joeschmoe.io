@@ -68,16 +68,26 @@ pre span {
 .text--blue {
   color: var(--blue);
 }
+.text--red {
+  color: var(--red);
+}
+.text--right {
+  text-align: right;
+}
 .small {
   font-size: 0.8rem;
 }
-.italic {
-  font-style: italic;
+.highlight {
+  font-family: monospace, monospace;
+  background-color: rgba(7, 62, 117, 0.2);
 }
 .hidden {
   position: absolute;
   opacity: 0;
   z-index: -999;
+}
+.bg--beige {
+  background-color: var(--beige);
 }
 
 .two-cols {
@@ -118,6 +128,13 @@ a.btn {
   padding: 10px 30px;
   font-size: 0.8rem;
   display: inline-block;
+}
+.btn--fixed {
+  width: 120px;
+  text-align: center;
+}
+a.btn.btn--blue {
+  background-color: var(--blue);
 }
 
 .arrow {
@@ -256,7 +273,6 @@ section h1, section h2, section h3 {
 }
 
 .meet {
-  background-color: var(--beige);
   padding-bottom: 0;
 }
 .meet .two-cols__col {

@@ -6,7 +6,7 @@
 
   <div class="hero__cta">
     <a href="#sandbox" class="btn" onclick="doScrolling('#sandbox', 500)">Try the tool</a>
-    <h3><a href="#wtf" onclick="doScrolling('#documentation', 500)">Docs</a></h3>
+    <h3><a href="#wtf" onclick="doScrolling('#documentation', 500)">See the docs</a></h3>
   </div>
 
   <div class="scroll"><div class="arrow arrow--down"></div></div>
@@ -20,7 +20,7 @@
         <div class="input-wrapper">
           <label for="sandbox__input">identifier</label>
           <div class="input">
-            <span class="input__before">http://url.com/api/v1/</span>
+            <span class="input__before">https://joeschmoe.io/api/v1/</span>
             <input autocomplete="off" id="sandbox__input" onkeyup="onInputKeyup('#sandbox')" type="text" placeholder="<seed>" />
             <input id="sandbox__hidden" class="hidden" />
           </div>
@@ -35,7 +35,7 @@
   </div>
 </section>
 
-<section class="meet">
+<section class="meet bg--beige">
   <div class="two-cols">
     <div class="two-cols__col">
       <h2>jess schmoe</h2>
@@ -44,7 +44,7 @@
         <div class="input">
           <span class="input__before">
             <span class="text--blue">&lt;img</span>
-            src=&quot;http://url.com/api/v1/
+            src=&quot;//joeschmoe.io/api/v1/
           </span>
           <span class="input__fake">jess</span>
           <span class="input__before">&quot;<span class="text--blue">&gt;</span></span>
@@ -60,7 +60,7 @@
         <div class="input">
           <span class="input__before">
             <span class="text--blue">&lt;img</span>
-            src=&quot;http://url.com/api/v1/
+            src=&quot;//joeschmoe.io/api/v1/
           </span>
           <span class="input__fake">jon</span>
           <span class="input__before">&quot;<span class="text--blue">&gt;</span></span>
@@ -73,18 +73,26 @@
 
 <section class="wtf" id="wtf">
   <h2>wtf is this?</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  <p>
+    Joe Schmoe is a free, illustrated avatar generator.
+    It is mostly used as a profile picture placeholder for design mocks or
+    on live websites for users who haven't updated their picture yet. <br/>
+    Feel free to use them however you feel like!
+  </p>
+
+  <p>
+    The big advantage of our API is that in addition of being able to request a random Joe or a specific one by name,
+    you can also make a request from any string which will allways return the same Joe.<br/>
+    So you can use your users' name, email or id to keep their avatar consistent while being different
+    from other profile pictures!
+  </p>
 
   <div class="two-cols">
-    <div class="two-cols__col">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-ea commodo consequat.
+    <div class="two-cols__col text--right">
+      <a href="#sandbox" class="btn btn--fixed" onclick="doScrolling('#sandbox', 500)">Try it out!</a>
     </div>
     <div class="two-cols__col">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-ea commodo consequat.
+      <a href="#documentation" class="btn btn--fixed btn--blue" onclick="doScrolling('#documentation', 500)">See the docs</a>
     </div>
   </div>
 </section>
@@ -93,7 +101,7 @@ ea commodo consequat.
   <h2>Documentation</h2>
   <p>There are multiple ways you can query for a Schmoe.</p>
 
-  <p class="small italic">All queries are prepended with http://www.url.com</p>
+  <p class="small">All queries are prepended with <span class="highlight">https://joeschmoe.io</span></p>
 
   <h4>Get a Schmoe from a seed</h4>
   <div class="two-cols doc">
@@ -149,6 +157,10 @@ ea commodo consequat.
       </div>
     <% end %>
   </div>
+</section>
+
+<section class="footer bg--beige">
+  <p>Created with <span class="text--red">&#9829;</span> by <a href="http://jonandjess.studio" target="_blank">jon&jess</a></p>
 </section>
 
 <script>
