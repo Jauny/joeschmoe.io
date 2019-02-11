@@ -101,14 +101,14 @@ pre span {
   margin-right: 50px;
 }
 @media only screen and (max-width: 1024px) {
-  .two-cols {
+  .two-cols:not(.two-cols--mobile) {
     flex-direction: column;
   }
-  .two-cols__col {
+  .two-cols:not(.two-cols--mobile) {
     width: 100%;
     justify-content: center;
   }
-  .two-cols__col:first-child {
+  .two-cols:not(.two-cols--mobile):first-child {
     margin-right: 0;
   }
 }
@@ -122,12 +122,31 @@ a {
   text-decoration: none;
 }
 a.btn {
+  position: relative;
   background-color: var(--red);
   color: white;
   border-radius: 500px;
   padding: 10px 30px;
   font-size: 0.8rem;
   display: inline-block;
+}
+a.btn.btn--pulse::before {
+  content: '';
+  position: absolute;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 500px;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.4s;
+}
+a.btn.btn--pulse:active::before {
+  transform: scale(0);
+  opacity: 1;
+  transition: none;
 }
 .btn--fixed {
   width: 120px;

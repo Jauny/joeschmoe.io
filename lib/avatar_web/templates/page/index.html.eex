@@ -22,10 +22,10 @@
           <div class="input">
             <span class="input__before">https://joeschmoe.io/api/v1/</span>
             <input autocomplete="off" id="sandbox__input" onkeyup="onInputKeyup('#sandbox')" type="text" placeholder="<seed>" />
-            <input id="sandbox__hidden" class="hidden" />
+            <input id="sandbox__hidden" class="hidden" value="https://joeschmoe.io/api/v1/random" />
           </div>
         </div>
-        <a class="btn" onClick="copyInputValue('#sandbox')">Copy</a>
+        <a class="btn btn--pulse" onClick="copyInputValue('#sandbox')">Copy</a>
       </form>
     </div>
 
@@ -87,7 +87,7 @@
     from other profile pictures!
   </p>
 
-  <div class="two-cols">
+  <div class="two-cols two-cols--mobile">
     <div class="two-cols__col text--right">
       <a href="#sandbox" class="btn btn--fixed" onclick="doScrolling('#sandbox', 500)">Try it out!</a>
     </div>
@@ -148,7 +148,7 @@
 <section class="originals">
   <h2>All the Schmoes!</h2>
   <div class="originals__all">
-    <%= for original <- Enum.shuffle(all_originals) do %>
+    <%= for original <- Enum.shuffle(all_originals()) do %>
       <div class="originals__original">
         <%= raw(original.svg) %>
         <p>
@@ -173,7 +173,8 @@
     const input = document.querySelector(id + '__input')
     const hidden = document.querySelector(id + '__hidden')
 
-    hidden.value = '/api/local/' + input.value
+    const newValue = input.value.length > 0 ? input.value : 'random'
+    hidden.value = 'https://joeschmoe.io/api/v1/' + newValue
   }
 
   const updateImage = (id) => {
@@ -183,11 +184,7 @@
   }
 
   const copyInputValue = (id) => {
-    const input = document.querySelector(id + '__input')
     const hidden = document.querySelector(id + '__hidden')
-    if (input.value.length === 0) {
-      hidden.value += 'random'
-    }
     hidden.select()
     document.execCommand('copy')
   }
