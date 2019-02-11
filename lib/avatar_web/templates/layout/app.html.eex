@@ -4,8 +4,15 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Joe Schmoe</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+
+    <title>Joe Schmoe | An illustrated avatar collection</title>
+    <meta name="description" content="An illustrated avatar generator for developers and designers">
+    <meta name="keywords" content="Avatar,Profile Picture,Avatar,Avatar Genrator,API">
+    <meta property="og:title" content="Joe Schmoe" />
+    <meta property="og:description" content="Joe Schmoe is a free, illustrated avatar generator. It is mostly used as a profile picture placeholder for design mocks or on live websites for users who haven't updated their picture yet." />
+    <meta property="og:url" content="https://joeschmoe.io/" />
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134201704-2"></script>
