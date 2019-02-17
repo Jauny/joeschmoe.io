@@ -13,6 +13,9 @@ html {
   --beige: #F2EFEA;
   --grey: #818181;
   --section-gutter: 100px;
+  --two-cols-gutter: 40px;
+  --schmoe-size: 250px;
+  --code-family: monaco, monospace;
 }
 
 /*
@@ -38,8 +41,19 @@ body {
 h1 {
   font-size: 2.4rem;
 }
+section h1:first-child {
+  margin-top: 0;
+  margin-bottom: var(--section-gutter);
+}
 h2 {
   font-size: 1.8rem;
+  margin-bottom: var(--section-gutter);
+}
+section h2:first-child {
+  margin-top: 0;
+}
+.two-cols h2:first-child {
+  margin-bottom: var(--two-cols-gutter);
 }
 h3 {
   font-size: 1.5rem;
@@ -50,16 +64,22 @@ h4 {
   font-weight: bold;
   margin-bottom: 0;
 }
-pre {
-  font-size: 0.7rem;
-  font-weight: bold;
-  padding: 10px;
+pre, code {
+  font-family: var(--code-family);
+  font-size: 0.8rem;
+  font-weight: normal;
+  padding: 5px;
   margin: 0;
-  background-color: var(--beige);
+  background-color: white;
   color: var(--blue);
 }
 pre span {
   color: var(--red);
+}
+
+img.schmoe {
+  width: var(--schmoe-size);
+  height: var(--schmoe-size);
 }
 
 .text--grey {
@@ -74,12 +94,11 @@ pre span {
 .text--right {
   text-align: right;
 }
+.text--center {
+  text-align: center;
+}
 .small {
   font-size: 0.8rem;
-}
-.highlight {
-  font-family: monospace, monospace;
-  background-color: rgba(7, 62, 117, 0.2);
 }
 .hidden {
   position: absolute;
@@ -90,15 +109,25 @@ pre span {
   background-color: var(--beige);
 }
 
+.push--bottom {
+  margin-bottom: var(--section-gutter);
+}
+
 .two-cols {
   display: flex;
   justify-content: center;
+}
+section .two-cols:first-child {
+  margin-top: calc(var(--two-cols-gutter) - var(--section-gutter));
 }
 .two-cols__col {
   flex: 1 1 50%;
 }
 .two-cols__col:first-child {
   margin-right: 50px;
+}
+.col--ar {
+  text-align: right;
 }
 @media only screen and (max-width: 1024px) {
   .two-cols:not(.two-cols--mobile) {
@@ -110,6 +139,9 @@ pre span {
   }
   .two-cols:not(.two-cols--mobile):first-child {
     margin-right: 0;
+  }
+  section .two-cols:first-child {
+    margin-top: 0;
   }
 }
 
@@ -129,6 +161,10 @@ a.btn {
   padding: 10px 30px;
   font-size: 0.8rem;
   display: inline-block;
+}
+a.btn.btn--link {
+  background-color: transparent;
+  color: var(--red);
 }
 a.btn.btn--pulse::before {
   content: '';
@@ -172,7 +208,7 @@ a.btn.btn--blue {
 form {
   position: relative;
 }
-form a {
+form a, form a.btn {
   position: absolute;
   right: 0;
 }
@@ -196,7 +232,7 @@ label {
 }
 .input__before, .input__fake {
   height: 100%;
-  font-family: monospace, monospace;
+  font-family: var(--code-family);
   font-size: 0.8rem;
   line-height: 2rem;
 }
@@ -207,7 +243,7 @@ input {
   height: 1.9rem;
   width: 50%;
   font-size: 0.8rem;
-  font-family: monospace, monospace;
+  font-family: var(--code-family);
   color: var(--red);
   border: none;
   background-color: transparent;
@@ -218,7 +254,10 @@ input::placeholder {
 input:focus {
   outline: none;
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 450px) {
+  input, .input, .input__before, .input__fake {
+    font-size: 0.7rem;
+  }
 }
 
 table {
@@ -281,8 +320,7 @@ section h1, section h2, section h3 {
   text-align: center;
 }
 .sandbox__img img {
-  max-width: 300px;
-  border: 1px solid black;
+  border: 2px solid black;
   background-color: var(--beige);
 }
 @media only screen and (max-width: 1024px) {
@@ -303,8 +341,6 @@ section h1, section h2, section h3 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-  height: 50%;
 }
 @media only screen and (min-width: 1025px) {
   .meet .input-wrapper {
@@ -325,12 +361,27 @@ section h1, section h2, section h3 {
 
 .documentation .doc {
   margin-bottom: calc(var(--section-gutter) / 2);
-  font-size: 0.8rem;
+  width: 70%;
+}
+.documentation .doc:first-of-type {
+  margin-top: var(--section-gutter);
+}
+.documentation .doc >:first-child {
+  flex: 1;
+}
+.documentation .doc >:last-child {
+  flex: 2;
 }
 .documentation .doc p {
   margin-top: 0;
 }
 @media only screen and (max-width: 1024px) {
+  .documentation .col--ar {
+    text-align: left;
+  }
+  .documentation .doc {
+    width: 100%;
+  }
   .documentation .doc-cols {
     margin-bottom: calc(var(--section-gutter) / 2);
   }
@@ -338,17 +389,15 @@ section h1, section h2, section h3 {
 
 .originals__all {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  text-align: center;
 }
-.originals__all > * {
-  width: 30%;
-}
-.originals__original img {
-  width: 100%;
+.originals__original svg {
+  width: var(--schmoe-size);
+  height: var(--schmoe-size);
 }
 .originals__original p {
-  text-align: center;
   overflow: hidden;
 }
 .originals__original span {

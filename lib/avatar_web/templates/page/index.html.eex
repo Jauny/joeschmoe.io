@@ -5,8 +5,8 @@
   </div>
 
   <div class="hero__cta">
-    <a href="#sandbox" class="btn" onclick="doScrolling('#sandbox', 500)">Try the tool</a>
-    <h3><a href="#wtf" onclick="doScrolling('#documentation', 500)">See the docs</a></h3>
+    <div><a href="#sandbox" class="btn" onclick="doScrolling('#sandbox', 500)">Try the tool</a></div>
+    <div><a href="#wtf" class="btn btn--link" onclick="doScrolling('#documentation', 500)">See the docs</a></div>
   </div>
 
   <div class="scroll"><div class="arrow arrow--down"></div></div>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="two-cols__col sandbox__img">
-      <img id="sandbox__img" src="/api/local/random" />
+      <img class="schmoe" id="sandbox__img" src="/api/local/random" />
     </div>
   </div>
 </section>
@@ -38,109 +38,89 @@
 <section class="meet bg--beige">
   <div class="two-cols">
     <div class="two-cols__col">
-      <h2>jess schmoe</h2>
-      <div class="input-wrapper">
-        <label for="jess__input">identifier</label>
-        <div class="input">
-          <span class="input__before">
-            <span class="text--blue">&lt;img</span>
-            src=&quot;//joeschmoe.io/api/v1/
-          </span>
-          <span class="input__fake">jess</span>
-          <span class="input__before">&quot;<span class="text--blue">&gt;</span></span>
+      <div>
+        <h2>jess schmoe</h2>
+        <div class="input-wrapper">
+          <label for="jess__input">identifier</label>
+          <div class="input">
+            <span class="input__before">
+              <span class="text--blue">&lt;img</span>
+              src=&quot;//joeschmoe.io/api/v1/
+            </span>
+            <span class="input__fake">jess</span>
+            <span class="input__before">&quot;<span class="text--blue">&gt;</span></span>
+          </div>
         </div>
       </div>
-      <img src="/api/local/jess" />
+      <img class="schmoe" src="/api/local/jess" />
     </div>
 
     <div class="two-cols__col">
-      <h2>jon schmoe</h2>
-      <div class="input-wrapper">
-        <label for="jon">identifier</label>
-        <div class="input">
-          <span class="input__before">
-            <span class="text--blue">&lt;img</span>
-            src=&quot;//joeschmoe.io/api/v1/
-          </span>
-          <span class="input__fake">jon</span>
-          <span class="input__before">&quot;<span class="text--blue">&gt;</span></span>
+      <div>
+        <h2>jon schmoe</h2>
+        <div class="input-wrapper">
+          <label for="jon">identifier</label>
+          <div class="input">
+            <span class="input__before">
+              <span class="text--blue">&lt;img</span>
+              src=&quot;//joeschmoe.io/api/v1/
+            </span>
+            <span class="input__fake">jon</span>
+            <span class="input__before">&quot;<span class="text--blue">&gt;</span></span>
+          </div>
         </div>
       </div>
-      <img src="/api/local/jon" />
+      <img class="schmoe" src="/api/local/jon" />
     </div>
   </div>
 </section>
 
 <section class="wtf" id="wtf">
   <h2>wtf is this?</h2>
-  <p>
-    Joe Schmoe is a free, illustrated avatar generator.
-    It is mostly used as a profile picture placeholder for design mocks or
-    on live websites for users who haven't updated their picture yet. <br/>
-    Feel free to use them however you feel like!
+  <p class="push--bottom">
+  Joe schmoes are colorful characters illustrated by Jon&Jess that can be used as profile picture placeholders for live websites. The big advantage of our API is that when you request the same schmoe multiple times, you'll get the same avatar each time. Perfect for when you're associating an image with a user's identity. Use your user’s name, email or ID to keep their avatar consistent and unique throughout the user experience.
   </p>
 
-  <p>
-    The big advantage of our API is that in addition of being able to request a random Joe or a specific one by name,
-    you can also make a request from any string which will allways return the same Joe.<br/>
-    So you can use your users' name, email or id to keep their avatar consistent while being different
-    from other profile pictures!
-  </p>
-
-  <div class="two-cols two-cols--mobile">
-    <div class="two-cols__col text--right">
-      <a href="#sandbox" class="btn btn--fixed" onclick="doScrolling('#sandbox', 500)">Try it out!</a>
-    </div>
-    <div class="two-cols__col">
-      <a href="#documentation" class="btn btn--fixed btn--blue" onclick="doScrolling('#documentation', 500)">See the docs</a>
-    </div>
-  </div>
+  <div class="text--center"><a href="#sandbox" class="btn btn--fixed" onclick="doScrolling('#sandbox', 500)">Try the Tool</a></div>
 </section>
 
-<section class="documentation" id="documentation">
-  <h2>Documentation</h2>
-  <p>There are multiple ways you can query for a Schmoe.</p>
+<section class="documentation bg--beige" id="documentation">
+  <h2>get a schmoe</h2>
+  <p>
+    There are multiple ways you can query for a Schmoe.
+    All queries are prepended with <code class="inline">https://joeschmoe.io</code>.
+    The same seed always return the same schmoe: <code class="inline">api/v1/:seed</code>.   
+  </p>
 
-  <p class="small">All queries are prepended with <span class="highlight">https://joeschmoe.io</span></p>
+  <p>
+    You can query a random schmoe, a random lady schmoe, a random man schmoe, or a specific joe schmoe.
+  </p>
 
-  <h4>Get a Schmoe from a seed</h4>
   <div class="two-cols doc">
-    <div class="two-cols__col col--ar">
-      <p class="small">Get a Schmoe from :seed. The same seed always returns the same Schmoe.</p>
-    </div>
+    <div class="two-cols__col col--ar">Get a random Schmoe</div>
     <div class="two-cols__col">
-      <pre>/api/v1/<span>:seed</span></pre>
+      <pre>/api/v1/<span>random</span></pre>
     </div>
   </div>
 
-  <h4>Get a random Schmoe</h4>
-  <p>You can query a random Schmoe from all of them, or from females or males only.</p>
-    <div class="two-cols doc">
-      <div class="two-cols__col">Get a random Schmoe</div>
-      <div class="two-cols__col">
-        <pre>/api/v1/<span>random</span></pre>
-      </div>
-    </div>
-
-    <div class="two-cols doc">
-      <div class="two-cols__col">Get a random female Schmoe</div>
-      <div class="two-cols__col">
-        <pre>/api/v1/<span>female/random</span></pre>
-      </div>
-    </div>
-
-    <div class="two-cols doc">
-      <div class="two-cols__col">Get a random male Schmoe</div>
-      <div class="two-cols__col">
-        <pre>/api/v1/<span>male/random</span></pre>
-      </div>
-    </div>
-
-  <h4>Get a specific Schmoe</h4>
   <div class="two-cols doc">
-    <div class="two-cols__col">Get the Schmoe named Jon.</div>
+    <div class="two-cols__col col--ar">Get a lady Schmoe</div>
     <div class="two-cols__col">
-      <pre>/api/v1/<span>jon</span></pre>
+      <pre>/api/v1/<span>female/random</span></pre>
+    </div>
+  </div>
+
+  <div class="two-cols doc">
+    <div class="two-cols__col col--ar">Get a man Schmoe</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>male/random</span></pre>
+    </div>
+  </div>
+
+  <div class="two-cols doc">
+    <div class="two-cols__col col--ar">Get a Schmoe named Joe</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>joe</span></pre>
     </div>
   </div>
 </section>
