@@ -5,8 +5,8 @@
   </div>
 
   <div class="hero__cta">
-    <div><a href="#sandbox" class="btn" onclick="doScrolling('#sandbox', 500)">Try the tool</a></div>
-    <div><a href="#wtf" class="btn btn--link" onclick="doScrolling('#documentation', 500)">See the docs</a></div>
+    <div><a href="#sandbox" class="btn" onclick="doScrolling('#sandbox', 500)">Try the Tool</a></div>
+    <div><a href="#wtf" class="btn btn--link" onclick="doScrolling('#documentation', 500)">See the Docs</a></div>
   </div>
 
   <div class="scroll"><div class="arrow arrow--down" onclick="doScrolling('#sandbox', 500)"></div></div>
