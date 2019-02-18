@@ -1,7 +1,7 @@
 <div class="hero">
   <div class="hero__title">
     <h1>Joe Schmoe</h1>
-    <h3>An illustrated avatar collection for developers and designers</h3>
+    <h3>An illustrated avatar collection for<br/> developers and designers</h3>
   </div>
 
   <div class="hero__cta">
@@ -21,7 +21,10 @@
           <label for="sandbox__input">identifier</label>
           <div class="input">
             <span class="input__before">https://joeschmoe.io/api/v1/</span>
-            <input autocomplete="off" id="sandbox__input" onkeyup="onInputKeyup('#sandbox')" type="text" placeholder="<seed>" />
+            <div class="input-cursor">
+              <input autocomplete="off" id="sandbox__input" onkeyup="onInputKeyup('#sandbox')" type="text" placeholder="<seed>" />
+              <i class="cursor"></i>
+            </div>
             <input id="sandbox__hidden" class="hidden" value="https://joeschmoe.io/api/v1/random" />
           </div>
         </div>
@@ -126,7 +129,7 @@
 </section>
 
 <section class="originals">
-  <h2>All the Schmoes!</h2>
+  <h2>all the schmoes</h2>
   <div class="originals__all">
     <%= for original <- Enum.shuffle(all_originals()) do %>
       <div class="originals__original">
@@ -140,7 +143,13 @@
 </section>
 
 <section class="footer bg--beige">
-  <p>Created with <span class="text--red">&#9829;</span> by <a href="http://jonandjess.studio" target="_blank">jon&jess</a></p>
+  <div>
+    <span>This is a</span>
+    <a href="http://jonandjess.studio"><img class="logo" src="<%= Routes.static_path(@conn, "/images/jjlogo.png") %>" /></a>
+    <span>side hustle.</span>
+  </div>
+
+  <div>For questions of fan mail, email <span class="text--red">hello@jonandjess.studio<span>.</div>
 </section>
 
 <script>
