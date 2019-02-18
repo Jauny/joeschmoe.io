@@ -81,7 +81,7 @@
 <section class="wtf" id="wtf">
   <h2>wtf is this?</h2>
   <p class="push--bottom">
-  Joe Schmoes are colorful characters illustrated by Jon&Jess that can be used as profile picture placeholders for live websites. The big advantage of our API is that when you request the same Schmoe multiple times, you'll get the same avatar each time. Perfect for when you're associating an image with a user's identity. Use your user’s name, email or ID to keep their avatar consistent and unique throughout the user experience.
+    Joe Schmoes are colorful characters illustrated by <a target="_blank" href="http://jonandjess.studio">Jon&amp;Jess</a> that can be used as profile picture placeholders for live websites or design mock ups. The big advantage of our API is that when you request the same Schmoe multiple times, you'll get the same avatar each time—perfect for when you're associating an image with a user's identity. Use your user’s name, email or ID to keep their avatar consistent and unique throughout the user experience.
   </p>
 
   <div class="text--center"><a href="#sandbox" class="btn btn--fixed" onclick="doScrolling('#sandbox', 500)">Try the Tool</a></div>
@@ -97,6 +97,7 @@
 
   <p>
     You can query a random Schmoe, a random lady Schmoe, a random man Schmoe, or a specific joe Schmoe.
+    You can also download Schmoe SVGs <a target="_blank" href="https://drive.google.com/open?id=1mVK7gORi1oQILb9_RzwVRqJpcG4985i_">here</a>.
   </p>
 
   <div class="two-cols doc">
