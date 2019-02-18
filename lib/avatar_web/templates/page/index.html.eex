@@ -9,7 +9,7 @@
     <div><a href="#wtf" class="btn btn--link" onclick="doScrolling('#documentation', 500)">See the docs</a></div>
   </div>
 
-  <div class="scroll"><div class="arrow arrow--down"></div></div>
+  <div class="scroll"><div class="arrow arrow--down" onclick="doScrolling('#sandbox', 500)"></div></div>
 </div>
 
 <section class="sandbox" id="sandbox">
@@ -28,7 +28,7 @@
             <input id="sandbox__hidden" class="hidden" value="https://joeschmoe.io/api/v1/random" />
           </div>
         </div>
-        <a class="btn btn--pulse" onClick="copyInputValue('#sandbox')">Copy</a>
+        <a class="btn btn--pulse" id="sandbox__copy-btn" onClick="copyInputValue('#sandbox')">Copy</a>
       </form>
     </div>
 
@@ -81,7 +81,7 @@
 <section class="wtf" id="wtf">
   <h2>wtf is this?</h2>
   <p class="push--bottom">
-  Joe schmoes are colorful characters illustrated by Jon&Jess that can be used as profile picture placeholders for live websites. The big advantage of our API is that when you request the same schmoe multiple times, you'll get the same avatar each time. Perfect for when you're associating an image with a user's identity. Use your user’s name, email or ID to keep their avatar consistent and unique throughout the user experience.
+  Joe Schmoes are colorful characters illustrated by Jon&Jess that can be used as profile picture placeholders for live websites. The big advantage of our API is that when you request the same Schmoe multiple times, you'll get the same avatar each time. Perfect for when you're associating an image with a user's identity. Use your user’s name, email or ID to keep their avatar consistent and unique throughout the user experience.
   </p>
 
   <div class="text--center"><a href="#sandbox" class="btn btn--fixed" onclick="doScrolling('#sandbox', 500)">Try the Tool</a></div>
@@ -92,11 +92,11 @@
   <p>
     There are multiple ways you can query for a Schmoe.
     All queries are prepended with <code class="inline">https://joeschmoe.io</code>.
-    The same seed always return the same schmoe: <code class="inline">api/v1/:seed</code>.   
+    The same seed always return the same Schmoe: <code class="inline">api/v1/:seed</code>.   
   </p>
 
   <p>
-    You can query a random schmoe, a random lady schmoe, a random man schmoe, or a specific joe schmoe.
+    You can query a random Schmoe, a random lady Schmoe, a random man Schmoe, or a specific joe Schmoe.
   </p>
 
   <div class="two-cols doc">
@@ -146,16 +146,26 @@
   <div class="flex">
     <span>This is a</span>
     <a href="http://jonandjess.studio"><img class="logo" src="<%= Routes.static_path(@conn, "/images/jjlogo.png") %>" /></a>
-    <span>side hustle.</span>
+    <span>production.</span>
   </div>
 
-  <div>For questions of fan mail, email <span class="text--red">hello@jonandjess.studio<span>.</div>
+  <div>For questions or fan mail, email <span class="text--red">hello@jonandjess.studio</span>.</div>
 </section>
 
 <script>
   const onInputKeyup = (id) => {
+    clearInputButtonText(id)
     updateHiddenInputValue(id)
     updateImage(id)
+  }
+
+  const clearInputButtonText = id => {
+    const btnid = id + '__copy-btn'
+    console.log(btnid)
+    const btn = document.querySelector(id + '__copy-btn')
+    console.log(id)
+    console.log(btn)
+    btn.text = 'Copy'
   }
 
   const updateHiddenInputValue = (id) => {
@@ -173,9 +183,12 @@
   }
 
   const copyInputValue = (id) => {
+    const button = document.querySelector(id + '__copy-btn')
     const hidden = document.querySelector(id + '__hidden')
     hidden.select()
     document.execCommand('copy')
+
+    button.text = 'Copied'
   }
 
   function getElementY(query) {

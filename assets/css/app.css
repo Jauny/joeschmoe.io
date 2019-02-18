@@ -12,7 +12,7 @@ html {
   --red: #F44711;
   --beige: #F2EFEA;
   --grey: #818181;
-  --section-gutter: 100px;
+  --section-gutter: 75px;
   --two-cols-gutter: 40px;
   --schmoe-size: 250px;
   --code-family: monaco, monospace;
@@ -47,7 +47,7 @@ section h1:first-child {
 }
 h2 {
   font-size: 1.8rem;
-  margin-bottom: var(--section-gutter);
+  margin-bottom: calc(var(--section-gutter) / 2);
 }
 section h2:first-child {
   margin-top: 0;
@@ -63,6 +63,9 @@ h4 {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 0;
+}
+p:last-of-type {
+  margin-bottom: calc(var(--section-gutter) / 2);
 }
 span.with-dot {
   position: relative;
@@ -213,6 +216,7 @@ a.btn.btn--blue {
   height: 65px;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 .arrow--down {
   transform: rotate(-135deg);
@@ -276,9 +280,9 @@ input:focus {
 .input-cursor i {
   position: absolute;
   content: '';
-  width: 5px;
+  width: 2px;
   height: 1.2rem;
-  left: 0;
+  left: 2px;
   margin-top: 0.4rem;
   background-color: var(--red);
   animation-name: blink;
@@ -335,11 +339,21 @@ section > * {
   text-align: center;
   background-image: url("/images/hero_bg.svg");
   background-size: cover;
-  background-position: center -50px;
+  background-position: center -75px;
   background-repeat: no-repeat;
 }
 .hero img {
   max-width: 100%;
+  margin-bottom: -10px;
+}
+.hero h3 {
+  margin-top: 0;
+  line-height: 2rem;
+}
+@media only screen and (min-width: 1700px) {
+  .hero .hero__title {
+    margin-top: 65px;
+  }
 }
 .hero .scroll {
   width: calc(100vw - 30px);
@@ -352,6 +366,9 @@ section h1, section h2, section h3 {
   text-align: center;
 }
 
+.sandbox h2 {
+  margin-bottom: var(--section-gutter);
+}
 .sandbox .two-cols__col {
   flex: 0 0 40%;
 }
@@ -360,6 +377,10 @@ section h1, section h2, section h3 {
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+}
+.sandbox .btn {
+  text-align: center;
+  width: 60px;
 }
 .sandbox__img {
   text-align: center;
@@ -381,6 +402,9 @@ section h1, section h2, section h3 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.meet h2 {
+  margin-bottom: 20px !important;
 }
 .meet img {
   display: block;
@@ -455,10 +479,10 @@ section h1, section h2, section h3 {
 .originals__original .name::after {
   content: '';
   position: absolute;
-  left: 0px;
-  top: 1px;
-  height: 12px;
-  width: 12px;
+  left: 1px;
+  top: 2px;
+  height: 11px;
+  width: 11px;
   background-color: var(--red);
   border-radius: 50%;
 }
