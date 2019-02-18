@@ -1,6 +1,6 @@
 <div class="hero">
   <div class="hero__title">
-    <h1>Joe Schmoe</h1>
+    <img src="<%= Routes.static_path(@conn, "/images/title.svg") %>" />
     <h3>An illustrated avatar collection for<br/> developers and designers</h3>
   </div>
 
@@ -143,7 +143,7 @@
 </section>
 
 <section class="footer bg--beige">
-  <div>
+  <div class="flex">
     <span>This is a</span>
     <a href="http://jonandjess.studio"><img class="logo" src="<%= Routes.static_path(@conn, "/images/jjlogo.png") %>" /></a>
     <span>side hustle.</span>
