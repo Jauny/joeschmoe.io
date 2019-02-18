@@ -135,7 +135,7 @@
       <div class="originals__original">
         <%= raw(original.svg) %>
         <p>
-          <span><%= original.name %></span>
+          <span class="name"><%= original.name %></span>
         </p>
       </div>
     <% end %>

@@ -431,7 +431,20 @@ section h1, section h2, section h3 {
   overflow: hidden;
 }
 .originals__original span {
-  color: var(--red);
+  font-size: 2rem;
+  line-height: 2.5rem;
+  position: relative;
+  font-weight: bold;
+}
+.originals__original .name::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 1px;
+  height: 12px;
+  width: 12px;
+  background-color: var(--red);
+  border-radius: 50%;
 }
 
 section.footer div {
