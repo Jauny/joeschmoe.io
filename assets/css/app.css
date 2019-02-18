@@ -319,7 +319,7 @@ section > * {
   text-align: center;
   background-image: url("/images/hero_bg.svg");
   background-size: cover;
-  background-position: center;
+  background-position: center -20px;
 }
 .hero .scroll {
   width: calc(100vw - 30px);
