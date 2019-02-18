@@ -42,7 +42,7 @@
   <div class="two-cols">
     <div class="two-cols__col">
       <div>
-        <h2>jess schmoe</h2>
+        <h2><span class="with-dot">j</span>ess schmoe</h2>
         <div class="input-wrapper">
           <label for="jess__input">identifier</label>
           <div class="input">
@@ -60,7 +60,7 @@
 
     <div class="two-cols__col">
       <div>
-        <h2>jon schmoe</h2>
+        <h2><span class="with-dot with-dot--blue">j</span>on schmoe</h2>
         <div class="input-wrapper">
           <label for="jon">identifier</label>
           <div class="input">
@@ -135,7 +135,7 @@
       <div class="originals__original">
         <%= raw(original.svg) %>
         <p>
-          <span class="name"><%= original.name %></span>
+        <span class="name name--<%= original.gender %>"><%= original.name %></span>
         </p>
       </div>
     <% end %>

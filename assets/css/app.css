@@ -8,7 +8,7 @@
  * VARIABLES
  */
 html {
-  --blue: #073E75;
+  --blue: #005999;
   --red: #F44711;
   --beige: #F2EFEA;
   --grey: #818181;
@@ -63,6 +63,22 @@ h4 {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 0;
+}
+span.with-dot {
+  position: relative;
+}
+span.with-dot::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 1px;
+  height: 0.3em;
+  width: 0.3em;
+  background-color: var(--red);
+  border-radius: 50%;
+}
+span.with-dot--blue::after {
+  background-color: var(--blue);
 }
 pre, code {
   font-family: var(--code-family);
@@ -445,6 +461,9 @@ section h1, section h2, section h3 {
   width: 12px;
   background-color: var(--red);
   border-radius: 50%;
+}
+.originals__original .name--male::after {
+  background-color: var(--blue);
 }
 
 section.footer div {
