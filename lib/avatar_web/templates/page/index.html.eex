@@ -80,12 +80,8 @@
 
 <section class="wtf" id="wtf">
   <h2>wtf is this?</h2>
-  <p>
+  <p class="push--bottom">
     Joe Schmoes are colorful characters illustrated by <a target="_blank" href="http://jonandjess.studio">Jon&amp;Jess</a> that can be used as profile picture placeholders for live websites or design mock ups. The big advantage of our API is that when you request the same Schmoe multiple times, you'll get the same avatar each time—perfect for when you're associating an image with a user's identity. Use your user’s name, email or ID to keep their avatar consistent and unique throughout the user experience.
-  </p>
-
-  <p>
-    Joe Schmoe is released under the MIT License, so feel free to do whatever you want with it!
   </p>
 
   <div class="text--center"><a href="#sandbox" class="btn btn--fixed" onclick="doScrolling('#sandbox', 500)">Try the Tool</a></div>
