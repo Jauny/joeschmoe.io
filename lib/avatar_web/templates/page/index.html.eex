@@ -162,10 +162,7 @@
 
   const clearInputButtonText = id => {
     const btnid = id + '__copy-btn'
-    console.log(btnid)
     const btn = document.querySelector(id + '__copy-btn')
-    console.log(id)
-    console.log(btn)
     btn.text = 'Copy'
   }
 
