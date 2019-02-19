@@ -507,6 +507,11 @@ section.footer img {
   height: 2rem;
   margin: 10px 10px auto;
 }
+section.footer div.license {
+  margin-top: 20px;
+  font-size: 0.7rem;
+  opacity: 0.75;
+}
 @media only screen and (max-width: 450px) {
   section.footer .flex {
     flex-direction: column;
