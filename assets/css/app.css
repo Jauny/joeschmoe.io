@@ -355,6 +355,11 @@ section > * {
     margin-top: 65px;
   }
 }
+@media only screen and (max-width: 1300px) {
+  .hero .hero__title {
+    width: 420px;
+  }
+}
 .hero .scroll {
   width: calc(100vw - 30px);
   position: absolute;
