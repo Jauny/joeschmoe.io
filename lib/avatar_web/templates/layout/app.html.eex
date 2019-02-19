@@ -12,7 +12,7 @@
     <meta property="og:title" content="Joe Schmoe" />
     <meta property="og:description" content="Joe Schmoe is a free, illustrated avatar generator. It is mostly used as a profile picture placeholder for design mocks or on live websites for users who haven't updated their picture yet." />
     <meta property="og:url" content="https://joeschmoe.io/" />
-    <meta property="og:image" content="<%= Routes.static_path(@conn, "/images/ogimage.png") %>" />
+    <meta property="og:image" content="http://joeschmoe.io/images/ogimage.png" />
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
