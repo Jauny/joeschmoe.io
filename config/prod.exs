@@ -11,7 +11,8 @@ use Mix.Config
 # before starting your production server.
 config :avatar, AvatarWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "fathomless-wave-60767.herokuapp.com", port: System.get_env("PORT")],
+  url: [scheme: "https", host: "joeschmoe.io", port: System.get_env("PORT")],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
 
