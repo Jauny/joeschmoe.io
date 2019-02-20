@@ -108,9 +108,23 @@
   </div>
 
   <div class="two-cols doc">
+    <div class="two-cols__col col--ar">Get a Schmoe named Joe</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>joe</span></pre>
+    </div>
+  </div>
+
+  <div class="two-cols doc">
     <div class="two-cols__col col--ar">Get a lady Schmoe</div>
     <div class="two-cols__col">
       <pre>/api/v1/<span>female/random</span></pre>
+    </div>
+  </div>
+
+  <div class="two-cols doc">
+    <div class="two-cols__col col--ar">Get a lady Schmoe named Jane</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>female/jane</span></pre>
     </div>
   </div>
 
@@ -122,9 +136,9 @@
   </div>
 
   <div class="two-cols doc">
-    <div class="two-cols__col col--ar">Get a Schmoe named Joe</div>
+    <div class="two-cols__col col--ar">Get a man Schmoe named Joe</div>
     <div class="two-cols__col">
-      <pre>/api/v1/<span>joe</span></pre>
+      <pre>/api/v1/<span>male/joe</span></pre>
     </div>
   </div>
 </section>
