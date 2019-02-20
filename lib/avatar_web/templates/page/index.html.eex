@@ -92,7 +92,7 @@
   <p>
     There are multiple ways you can query for a Schmoe.
     All queries are prepended with <code class="inline">https://joeschmoe.io</code>.
-    The same seed always return the same Schmoe: <code class="inline">api/v1/:seed</code>.   
+    The same seed always return the same Schmoe: <code class="inline">api/v1/<span class="text--red">:seed</span></code>.   
   </p>
 
   <p>
