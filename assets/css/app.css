@@ -221,6 +221,11 @@ a.btn.btn--blue {
 .arrow--down {
   transform: rotate(-135deg);
 }
+@media only screen and (max-width: 500px) {
+  .arrow {
+    display: none;
+  }
+}
 
 form {
   position: relative;
