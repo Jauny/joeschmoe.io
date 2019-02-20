@@ -323,6 +323,7 @@ table tr td {
 section {
   padding-top: var(--section-gutter);
   padding-bottom: var(--section-gutter);
+  background-color: white;
 }
 section > * {
   max-width: 1024px;
@@ -346,6 +347,20 @@ section > * {
   background-size: cover;
   background-position: center -75px;
   background-repeat: no-repeat;
+}
+/* paralax on desktop */
+@media only screen and (min-width: 500px) {
+  .hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+  section.sandbox {
+    background-color: white;
+    margin-top: 100vh !important;
+  }
 }
 .hero img {
   max-width: 100%;
