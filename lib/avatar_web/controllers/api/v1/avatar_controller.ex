@@ -25,6 +25,13 @@ defmodule AvatarWeb.Api.V1.AvatarController do
     |> send_resp(200, original.svg)
   end
 
+  def name_gender(conn, %{"gender" => gender, "name" => name}) do
+    original = Original.get_from_string_and_gender(name, gender)
+    conn = conn
+    |> put_resp_content_type("image/svg+xml")
+    |> send_resp(200, original.svg)
+  end
+
   def from_email_original(conn, %{"email" => email}) do
     original =
       case Original.get_by_name(email) do

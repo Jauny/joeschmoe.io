@@ -29,6 +29,7 @@ defmodule AvatarWeb.Router do
 
       get "/random", AvatarController, :random_original
       get "/:gender/random", AvatarController, :random_gender
+      get "/:gender/:name", AvatarController, :name_gender
       get "/:email", AvatarController, :from_email_original
     end
 

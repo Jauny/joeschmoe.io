@@ -1,6 +1,7 @@
 defmodule Avatar.Original do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
 
   schema "originals" do
     field :gender, :string
@@ -23,6 +24,15 @@ defmodule Avatar.Original do
 
   def get_from_string(string) do
     originals = Avatar.Original |> Avatar.Repo.all
+    index = string
+            |> to_charlist
+            |> Enum.reduce(fn el, acc -> el + acc end)
+            |> rem(length(originals))
+    Enum.at(originals, index)
+  end
+
+  def get_from_string_and_gender(string, gender) do
+    originals = Avatar.Original |> Ecto.Query.where(gender: ^gender) |> Avatar.Repo.all
     index = string
             |> to_charlist
             |> Enum.reduce(fn el, acc -> el + acc end)
