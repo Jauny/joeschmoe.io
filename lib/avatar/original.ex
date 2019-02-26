@@ -16,6 +16,9 @@ defmodule Avatar.Original do
     original
     |> cast(attrs, [:name, :gender, :svg])
     |> validate_required([:name, :gender, :svg])
+    |> validate_inclusion(
+      :gender, ["female", "male"],
+      message: "should be either male or female")
   end
 
   def get_by_name(name) do
@@ -24,19 +27,38 @@ defmodule Avatar.Original do
 
   def get_from_string(string) do
     originals = Avatar.Original |> Avatar.Repo.all
-    index = string
-            |> to_charlist
-            |> Enum.reduce(fn el, acc -> el + acc end)
-            |> rem(length(originals))
-    Enum.at(originals, index)
+    Enum.at(originals, string
+                       |> to_charlist
+                       |> Enum.reduce(fn el, acc -> el + acc end)
+                       |> rem(length(originals)))
   end
 
   def get_from_string_and_gender(string, gender) do
-    originals = Avatar.Original |> Ecto.Query.where(gender: ^gender) |> Avatar.Repo.all
-    index = string
-            |> to_charlist
-            |> Enum.reduce(fn el, acc -> el + acc end)
-            |> rem(length(originals))
-    Enum.at(originals, index)
+    originals = Avatar.Original |> where(gender: ^gender) |> Avatar.Repo.all
+    case Enum.find(originals, fn o -> o.name == string end) do
+      res -> res
+      nil -> Enum.at(originals, string
+                                |> to_charlist
+                                |> Enum.reduce(fn el, acc -> el + acc end)
+                                |> rem(length(originals)))
+    end
+  end
+
+  @doc """
+  Creates an original.
+
+  ## Examples
+
+      iex> create(%{field: value})
+      {:ok, %Original{}}
+
+      iex> create(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create(attrs \\ %{}) do
+    %Avatar.Original{}
+    |> Avatar.Original.changeset(attrs)
+    |> Avatar.Repo.insert()
   end
 end
