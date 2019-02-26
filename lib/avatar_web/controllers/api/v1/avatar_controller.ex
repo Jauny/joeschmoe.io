@@ -10,9 +10,9 @@ defmodule AvatarWeb.Api.V1.AvatarController do
     original = Original 
                       |> Repo.all 
                       |> Enum.random
-    conn = conn
-    |> put_resp_content_type("image/svg+xml")
-    |> send_resp(200, original.svg)
+    conn
+      |> put_resp_content_type("image/svg+xml")
+      |> send_resp(200, original.svg)
   end
 
   def random_gender(conn, %{"gender" => gender}) do
@@ -20,16 +20,16 @@ defmodule AvatarWeb.Api.V1.AvatarController do
                       |> Ecto.Query.where(gender: ^gender)
                       |> Repo.all 
                       |> Enum.random
-    conn = conn
-    |> put_resp_content_type("image/svg+xml")
-    |> send_resp(200, original.svg)
+    conn
+      |> put_resp_content_type("image/svg+xml")
+      |> send_resp(200, original.svg)
   end
 
   def name_gender(conn, %{"gender" => gender, "name" => name}) do
     original = Original.get_from_string_and_gender(name, gender)
-    conn = conn
-    |> put_resp_content_type("image/svg+xml")
-    |> send_resp(200, original.svg)
+    conn
+      |> put_resp_content_type("image/svg+xml")
+      |> send_resp(200, original.svg)
   end
 
   def from_email_original(conn, %{"email" => email}) do
@@ -39,8 +39,8 @@ defmodule AvatarWeb.Api.V1.AvatarController do
         res -> res
       end
 
-    conn = conn
-    |> put_resp_content_type("image/svg+xml")
-    |> send_resp(200, original.svg)
+    conn
+      |> put_resp_content_type("image/svg+xml")
+      |> send_resp(200, original.svg)
   end
 end
