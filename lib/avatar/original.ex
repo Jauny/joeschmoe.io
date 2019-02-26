@@ -36,11 +36,11 @@ defmodule Avatar.Original do
   def get_from_string_and_gender(string, gender) do
     originals = Avatar.Original |> where(gender: ^gender) |> Avatar.Repo.all
     case Enum.find(originals, fn o -> o.name == string end) do
-      res -> res
       nil -> Enum.at(originals, string
                                 |> to_charlist
                                 |> Enum.reduce(fn el, acc -> el + acc end)
                                 |> rem(length(originals)))
+      res -> res
     end
   end
 

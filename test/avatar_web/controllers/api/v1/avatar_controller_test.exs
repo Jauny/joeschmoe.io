@@ -39,6 +39,18 @@ defmodule AvatarWeb.AvatarControllerTest do
       conn = get(conn, "/api/v1/male/jon")
       assert conn.resp_body =~ "jon"
     end
+
+    test "Returns a random female when new name", %{conn: conn} do
+      conn = get(conn, "/api/v1/female/hello")
+      headers = Enum.into(conn.resp_headers, %{})
+      assert headers["content-type"] =~ "image/svg+xml"
+    end
+
+    test "Returns a random male when new name", %{conn: conn} do
+      conn = get(conn, "/api/v1/male/hello")
+      headers = Enum.into(conn.resp_headers, %{})
+      assert headers["content-type"] =~ "image/svg+xml"
+    end
   end
 
   describe "from_email_original/2" do
