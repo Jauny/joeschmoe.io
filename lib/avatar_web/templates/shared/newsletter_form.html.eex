@@ -93,7 +93,7 @@
         #mlb2-1234346.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p {
           color: #000000;
           font-family: 'Libre Baskerville', serif !important;
-      		font-size: 20px;
+      		font-size: 0.7rem;
       		font-weight: 400;
       		line-height: 20px;
           margin: 0 0 10px 0;
@@ -377,7 +377,7 @@
       </div>
       <div class="ml-form-successBody row-success" style="display: none">
         <div class="ml-form-successContent">
-          <p>Thank you!</p>
+          <p>Hooray!</p>
         </div>
       </div>
     </div>
