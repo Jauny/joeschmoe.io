@@ -540,3 +540,14 @@ section.footer div.license {
     margin-bottom: var(--two-cols-gutter);
   }
 }
+
+.newsletter {
+  margin: auto;
+  text-align: center;
+}
+.newsletter h2 {
+  margin-bottom: 0;
+}
+.newsletter p {
+  margin-bottom: 0;
+}

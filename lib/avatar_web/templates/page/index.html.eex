@@ -143,7 +143,15 @@
   </div>
 </section>
 
-<section class="originals">
+<section class="newsletter">
+  <h2>keep up with the schmoes</h2>
+  <p>
+  Sign up for the Jon&Jess newsletter to get updates on Schmoes.
+  </p>
+  <%= render AvatarWeb.SharedView, "newsletter_form.html", assigns %>
+</section>
+
+<section class="originals bg--beige">
   <h2>all the schmoes</h2>
   <div class="originals__all">
     <%= for original <- Enum.shuffle(all_originals()) do %>
@@ -155,6 +163,14 @@
       </div>
     <% end %>
   </div>
+</section>
+
+<section class="newsletter">
+  <h2>stay in the know</h2>
+  <p>
+  Sign up for the Jon&Jess newsletter to get updates on Schmoes.
+  </p>
+  <%= render AvatarWeb.SharedView, "newsletter_form.html", assigns %>
 </section>
 
 <section class="footer bg--beige">
