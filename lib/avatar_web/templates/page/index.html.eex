@@ -146,7 +146,7 @@
 <section class="newsletter">
   <h2>keep up with the schmoes</h2>
   <p>
-  Sign up for the Jon&Jess newsletter to get updates on Schmoes.
+  Sign up for the Jon&Jess newsletter to get updates.
   </p>
   <%= render AvatarWeb.SharedView, "newsletter_form.html", assigns %>
 </section>
