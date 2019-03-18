@@ -1,6 +1,6 @@
 <div class="hero">
   <div class="hero__title">
-    <img src="<%= Routes.static_path(@socket, "/images/title.svg") %>" />
+    <img src="<%= Routes.static_path(@conn, "/images/title.svg") %>" />
     <h3>An illustrated avatar collection for<br/> developers and designers</h3>
   </div>
 
@@ -14,28 +14,7 @@
 
 <section class="sandbox" id="sandbox">
   <h2>get a schmoe</h2>
-  <div class="two-cols">
-    <div class="two-cols__col">
-      <form phx-change="update-avatar">
-        <div class="input-wrapper">
-          <label for="sandbox__input">identifier</label>
-          <div class="input">
-            <span class="input__before">https://joeschmoe.io/api/v1/</span>
-            <div class="input-cursor">
-              <input name="q" autocomplete="off" id="sandbox__input" type="text" placeholder="<seed>" />
-              <i class="cursor"></i>
-            </div>
-            <input id="sandbox__hidden" class="hidden" value="https://joeschmoe.io/api/v1/<%= @val %>" />
-          </div>
-        </div>
-        <a class="btn btn--pulse" id="sandbox__copy-btn" onClick="copyInputValue('#sandbox')">Copy</a>
-      </form>
-    </div>
-
-    <div class="two-cols__col sandbox__img">
-      <img class="schmoe" id="sandbox__img" src="/api/local/<%= @val %>" />
-    </div>
-  </div>
+  <%= live_render(@conn, AvatarWeb.IndexLive) %>
 </section>
 
 <section class="meet bg--beige">
@@ -157,7 +136,7 @@
 <section class="originals bg--beige">
   <h2>all the schmoes</h2>
   <div class="originals__all">
-    <%= for original <- @session.all_originals do %>
+    <%= for original <- @all_originals do %>
       <div class="originals__original">
         <%= raw(original.svg) %>
         <p>
@@ -179,7 +158,7 @@
 <section class="footer bg--beige">
   <div class="flex">
     <span>This is a</span>
-    <a href="http://jonandjess.studio"><img class="logo" src="<%= Routes.static_path(@socket, "/images/jjlogo.png") %>" /></a>
+    <a href="http://jonandjess.studio"><img class="logo" src="<%= Routes.static_path(@conn, "/images/jjlogo.png") %>" /></a>
     <span>production.</span>
   </div>
 
