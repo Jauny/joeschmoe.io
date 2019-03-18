@@ -21,6 +21,7 @@ defmodule AvatarWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/test", PageController, :test_live
   end
 
   # Other scopes may use custom stacks.

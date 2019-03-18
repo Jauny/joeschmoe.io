@@ -1,6 +1,6 @@
 <div class="hero">
   <div class="hero__title">
-    <img src="<%= Routes.static_path(@socket, "/images/title.svg") %>" />
+    <img src="<%= Routes.static_path(@conn, "/images/title.svg") %>" />
     <h3>An illustrated avatar collection for<br/> developers and designers</h3>
   </div>
 
@@ -16,16 +16,16 @@
   <h2>get a schmoe</h2>
   <div class="two-cols">
     <div class="two-cols__col">
-      <form phx-change="update-avatar">
+      <form>
         <div class="input-wrapper">
           <label for="sandbox__input">identifier</label>
           <div class="input">
             <span class="input__before">https://joeschmoe.io/api/v1/</span>
             <div class="input-cursor">
-              <input name="q" autocomplete="off" id="sandbox__input" type="text" placeholder="<seed>" />
+              <input autocomplete="off" id="sandbox__input" onkeyup="onInputKeyup('#sandbox')" type="text" placeholder="<seed>" />
               <i class="cursor"></i>
             </div>
-            <input id="sandbox__hidden" class="hidden" value="https://joeschmoe.io/api/v1/<%= @val %>" />
+            <input id="sandbox__hidden" class="hidden" value="https://joeschmoe.io/api/v1/random" />
           </div>
         </div>
         <a class="btn btn--pulse" id="sandbox__copy-btn" onClick="copyInputValue('#sandbox')">Copy</a>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="two-cols__col sandbox__img">
-      <img class="schmoe" id="sandbox__img" src="/api/local/<%= @val %>" />
+      <img class="schmoe" id="sandbox__img" src="/api/local/random" />
     </div>
   </div>
 </section>
@@ -179,7 +179,7 @@
 <section class="footer bg--beige">
   <div class="flex">
     <span>This is a</span>
-    <a href="http://jonandjess.studio"><img class="logo" src="<%= Routes.static_path(@socket, "/images/jjlogo.png") %>" /></a>
+    <a href="http://jonandjess.studio"><img class="logo" src="<%= Routes.static_path(@conn, "/images/jjlogo.png") %>" /></a>
     <span>production.</span>
   </div>
 
@@ -189,6 +189,32 @@
 </section>
 
 <script>
+  const onInputKeyup = (id) => {
+    clearInputButtonText(id)
+    updateHiddenInputValue(id)
+    updateImage(id)
+  }
+
+  const clearInputButtonText = id => {
+    const btnid = id + '__copy-btn'
+    const btn = document.querySelector(id + '__copy-btn')
+    btn.text = 'Copy'
+  }
+
+  const updateHiddenInputValue = (id) => {
+    const input = document.querySelector(id + '__input')
+    const hidden = document.querySelector(id + '__hidden')
+
+    const newValue = input.value.length > 0 ? input.value : 'random'
+    hidden.value = 'https://joeschmoe.io/api/v1/' + newValue
+  }
+
+  const updateImage = (id) => {
+    const input = document.querySelector(id + '__input')
+    const img = document.querySelector(id + '__img')
+    img.src = '/api/local/' + (input.value.length ? input.value : 'random')
+  }
+
   const copyInputValue = (id) => {
     const button = document.querySelector(id + '__copy-btn')
     const hidden = document.querySelector(id + '__hidden')
