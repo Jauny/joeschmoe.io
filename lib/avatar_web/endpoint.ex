@@ -1,6 +1,8 @@
 defmodule AvatarWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :avatar
 
+  socket "/live", Phoenix.LiveView.Socket
+
   socket "/socket", AvatarWeb.UserSocket,
     websocket: [timeout: 45_000],
     longpoll: false
