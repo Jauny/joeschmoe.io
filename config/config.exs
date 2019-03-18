@@ -8,7 +8,8 @@
 use Mix.Config
 
 config :avatar,
-  ecto_repos: [Avatar.Repo]
+  ecto_repos: [Avatar.Repo],
+  env: Mix.env
 
 # Configures the endpoint
 config :avatar, AvatarWeb.Endpoint,
