@@ -1,5 +1,6 @@
 defmodule AvatarWeb.TestLive do
   use Phoenix.LiveView
+  alias AvatarWeb.PageView
 
   def render(assigns), do: AvatarWeb.PageView.render("index_live.html", assigns)
 
