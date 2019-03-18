@@ -157,7 +157,7 @@
 <section class="originals bg--beige">
   <h2>all the schmoes</h2>
   <div class="originals__all">
-    <%= for original <- Enum.shuffle(all_originals()) do %>
+    <%= for original <- @session.all_originals do %>
       <div class="originals__original">
         <%= raw(original.svg) %>
         <p>

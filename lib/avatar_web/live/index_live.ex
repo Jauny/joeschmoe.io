@@ -1,7 +1,10 @@
 defmodule AvatarWeb.IndexLive do
   use Phoenix.LiveView
+  alias AvatarWeb.PageView
 
-  def render(assigns), do: AvatarWeb.PageView.render("index.html", assigns)
+  def render(assigns) do
+    PageView.render("index.html", assigns)
+  end
 
   def mount(_session, socket) do
     {:ok, assign(socket, val: "random")}
