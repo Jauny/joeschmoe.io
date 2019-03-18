@@ -52,8 +52,7 @@ config :avatar, AvatarWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/avatar_web/views/.*(ex)$},
-      ~r{lib/avatar_web/templates/.*(eex)$},
-      ~r{lib/demo_web/live/.*(ex)$}
+      ~r{lib/avatar_web/templates/.*(eex)$}
     ]
   ]
 

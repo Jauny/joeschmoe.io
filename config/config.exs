@@ -15,8 +15,7 @@ config :avatar, AvatarWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "qABDg50yI5jTL88QBj2z9suYv+4NzuRwHPsoILNngReXHnDqXlzJ+RVz3bWwV1IZ",
   render_errors: [view: AvatarWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Avatar.PubSub, adapter: Phoenix.PubSub.PG2],
-  live_view: [signing_salt: System.get_env("SECRET_SALT")]
+  pubsub: [name: Avatar.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -36,10 +35,6 @@ config :avatar, :event,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
-
-# live template engine
-config :phoenix,
-  template_engines: [leex: Phoenix.LiveView.Engine]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
