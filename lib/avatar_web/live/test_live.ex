@@ -3,7 +3,6 @@ defmodule AvatarWeb.TestLive do
   alias AvatarWeb.PageView
 
   def render(assigns) do
-    #PageView.render("index.html", assigns)
     ~L"""
     <div class="two-cols">
       <div class="two-cols__col">

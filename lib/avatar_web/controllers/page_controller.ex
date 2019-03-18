@@ -6,6 +6,6 @@ defmodule AvatarWeb.PageController do
 
   def index(conn, _) do
     all_originals = PageView.all_originals() |> Enum.shuffle
-    render(conn, "index.html", all_originals: all_originals, val: "random")
+    render(conn, "index.html", all_originals: all_originals)
   end
 end
