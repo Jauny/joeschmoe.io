@@ -1,0 +1,242 @@
+<div class="hero">
+  <div class="hero__title">
+    <img src="<%= Routes.static_path(@conn, "/images/title.svg") %>" />
+    <h3>An illustrated avatar collection for<br/> developers and designers</h3>
+  </div>
+
+  <div class="hero__cta">
+    <div><a href="#sandbox" class="btn" onclick="doScrolling('#sandbox', 500)">Try the Tool</a></div>
+    <div><a href="#wtf" class="btn btn--link" onclick="doScrolling('#documentation', 500)">See the Docs</a></div>
+  </div>
+
+  <div class="scroll"><div class="arrow arrow--down" onclick="doScrolling('#sandbox', 500)"></div></div>
+</div>
+
+<section class="sandbox" id="sandbox">
+  <h2>get a schmoe</h2>
+  <%= live_render(@conn, AvatarWeb.IndexLive) %>
+</section>
+
+<section class="meet bg--beige">
+  <div class="two-cols">
+    <div class="two-cols__col">
+      <div>
+        <h2><span class="with-dot">j</span>ess schmoe</h2>
+        <div class="input-wrapper">
+          <label for="jess__input">identifier</label>
+          <div class="input">
+            <span class="input__before">
+              <span class="text--blue">&lt;img</span>
+              src=&quot;//joeschmoe.io/api/v1/
+            </span>
+            <span class="input__fake">jess</span>
+            <span class="input__before">&quot;<span class="text--blue">&gt;</span></span>
+          </div>
+        </div>
+      </div>
+      <img class="schmoe" src="/api/local/jess" />
+    </div>
+
+    <div class="two-cols__col">
+      <div>
+        <h2><span class="with-dot with-dot--blue">j</span>on schmoe</h2>
+        <div class="input-wrapper">
+          <label for="jon">identifier</label>
+          <div class="input">
+            <span class="input__before">
+              <span class="text--blue">&lt;img</span>
+              src=&quot;//joeschmoe.io/api/v1/
+            </span>
+            <span class="input__fake">jon</span>
+            <span class="input__before">&quot;<span class="text--blue">&gt;</span></span>
+          </div>
+        </div>
+      </div>
+      <img class="schmoe" src="/api/local/jon" />
+    </div>
+  </div>
+</section>
+
+<section class="wtf" id="wtf">
+  <h2>wtf is this?</h2>
+  <p class="push--bottom">
+    Joe Schmoes are colorful characters illustrated by <a target="_blank" href="http://jonandjess.studio">Jon&amp;Jess</a> that can be used as profile picture placeholders for live websites or design mock ups. The big advantage of our API is that when you request the same Schmoe multiple times, you'll get the same avatar each time—perfect for when you're associating an image with a user's identity. Use your user’s name, email or ID to keep their avatar consistent and unique throughout the user experience.
+  </p>
+
+  <div class="text--center"><a href="#sandbox" class="btn btn--fixed" onclick="doScrolling('#sandbox', 500)">Try the Tool</a></div>
+</section>
+
+<section class="documentation bg--beige" id="documentation">
+  <h2>get a schmoe</h2>
+  <p>
+    There are multiple ways you can query for a Schmoe.
+    All queries are prepended with <code class="inline">https://joeschmoe.io</code>.
+    The same seed always return the same Schmoe: <code class="inline">api/v1/<span class="text--red">:seed</span></code>.   
+  </p>
+
+  <p>
+    You can query a random Schmoe, a random lady Schmoe, a random man Schmoe, or a specific Joe Schmoe.
+  </p>
+  <p>
+    They're also available for <a target="_blank" href="https://gumroad.com/l/joeschmoe">download</a>
+    and on the <a href="https://store.framer.com/package/elliot/joe-schmoe" target="_blank">Framer Store</a>.
+  </p>
+
+  <div class="two-cols doc">
+    <div class="two-cols__col col--ar">Get a random Schmoe</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>random</span></pre>
+    </div>
+  </div>
+
+  <div class="two-cols doc">
+    <div class="two-cols__col col--ar">Get a Schmoe named Joe</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>joe</span></pre>
+    </div>
+  </div>
+
+  <div class="two-cols doc">
+    <div class="two-cols__col col--ar">Get a lady Schmoe</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>female/random</span></pre>
+    </div>
+  </div>
+
+  <div class="two-cols doc">
+    <div class="two-cols__col col--ar">Get a lady Schmoe named Jane</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>female/jane</span></pre>
+    </div>
+  </div>
+
+  <div class="two-cols doc">
+    <div class="two-cols__col col--ar">Get a man Schmoe</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>male/random</span></pre>
+    </div>
+  </div>
+
+  <div class="two-cols doc">
+    <div class="two-cols__col col--ar">Get a man Schmoe named Joe</div>
+    <div class="two-cols__col">
+      <pre>/api/v1/<span>male/joe</span></pre>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>keep up with the schmoes</h2>
+  <p>
+  Sign up for the Jon&Jess newsletter to get updates.
+  </p>
+  <%= render AvatarWeb.SharedView, "newsletter_form.html", assigns %>
+</section>
+
+<section class="originals bg--beige">
+  <h2>all the schmoes</h2>
+  <div class="originals__all">
+    <%= for original <- @all_originals do %>
+      <div class="originals__original">
+        <%= raw(original.svg) %>
+        <p>
+        <span class="name name--<%= original.gender %>"><%= original.name %></span>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>stay in the know</h2>
+  <p>
+  Sign up for the Jon&Jess newsletter to get updates on Schmoes.
+  </p>
+  <%= render AvatarWeb.SharedView, "newsletter_form.html", assigns %>
+</section>
+
+<section class="footer bg--beige">
+  <div class="flex">
+    <span>This is a</span>
+    <a href="http://jonandjess.studio"><img class="logo" src="<%= Routes.static_path(@conn, "/images/jjlogo.png") %>" /></a>
+    <span>production.</span>
+  </div>
+
+  <div>For questions or fan mail, email <span class="text--red">hello@jonandjess.studio</span>.</div>
+
+  <div class="license">Free for personal and commercial use. Just don’t sell the artwork, please. :)</div>
+</section>
+
+<script>
+  const onInputKeyup = (id) => {
+    clearInputButtonText(id)
+    updateHiddenInputValue(id)
+    updateImage(id)
+  }
+
+  const clearInputButtonText = id => {
+    const btnid = id + '__copy-btn'
+    const btn = document.querySelector(id + '__copy-btn')
+    btn.text = 'Copy'
+  }
+
+  const updateHiddenInputValue = (id) => {
+    const input = document.querySelector(id + '__input')
+    const hidden = document.querySelector(id + '__hidden')
+
+    const newValue = input.value.length > 0 ? input.value : 'random'
+    hidden.value = 'https://joeschmoe.io/api/v1/' + newValue
+  }
+
+  const updateImage = (id) => {
+    const input = document.querySelector(id + '__input')
+    const img = document.querySelector(id + '__img')
+    img.src = '/api/local/' + (input.value.length ? input.value : 'random')
+  }
+
+  const copyInputValue = (id) => {
+    const button = document.querySelector(id + '__copy-btn')
+    const hidden = document.querySelector(id + '__hidden')
+    hidden.select()
+    document.execCommand('copy')
+
+    button.text = 'Copied'
+  }
+
+  function getElementY(query) {
+    return window.pageYOffset + document.querySelector(query).getBoundingClientRect().top
+  }
+
+  function doScrolling(element, duration) {
+    var startingY = window.pageYOffset
+    var elementY = getElementY(element)
+    // If element is close to page's bottom then window will scroll only to some position above the element.
+    var targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY
+    var diff = targetY - startingY
+    // Easing function: easeInOutCubic
+    // From: https://gist.github.com/gre/1650294
+    var easing = function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 }
+    var start
+
+    if (!diff) return
+
+    // Bootstrap our animation - it will get called right before next frame shall be rendered.
+    window.requestAnimationFrame(function step(timestamp) {
+      if (!start) start = timestamp
+      // Elapsed miliseconds since start of scrolling.
+      var time = timestamp - start
+      // Get percent of completion in range [0, 1].
+      var percent = Math.min(time / duration, 1)
+      // Apply the easing.
+      // It can cause bad-looking slow frames in browser performance tool, so be careful.
+      percent = easing(percent)
+
+      window.scrollTo(0, startingY + diff * percent)
+
+      // Proceed with animation as long as we wanted it to.
+      if (time < duration) {
+        window.requestAnimationFrame(step)
+      }
+    })
+  }
+</script>

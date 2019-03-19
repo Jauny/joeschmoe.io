@@ -1,7 +1,11 @@
 defmodule AvatarWeb.PageController do
   use AvatarWeb, :controller
 
-  def index(conn, _params) do
-    render(conn, "index.html")
+  alias AvatarWeb.PageView
+  alias Phoenix.LiveView
+
+  def index(conn, _) do
+    all_originals = PageView.all_originals() |> Enum.shuffle
+    render(conn, "index.html", all_originals: all_originals)
   end
 end
