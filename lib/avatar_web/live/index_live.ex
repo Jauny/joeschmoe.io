@@ -1,4 +1,4 @@
-defmodule AvatarWeb.TestLive do
+defmodule AvatarWeb.IndexLive do
   use Phoenix.LiveView
   alias AvatarWeb.PageView
 
