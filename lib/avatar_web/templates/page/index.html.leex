@@ -168,32 +168,6 @@
 </section>
 
 <script>
-  const onInputKeyup = (id) => {
-    clearInputButtonText(id)
-    updateHiddenInputValue(id)
-    updateImage(id)
-  }
-
-  const clearInputButtonText = id => {
-    const btnid = id + '__copy-btn'
-    const btn = document.querySelector(id + '__copy-btn')
-    btn.text = 'Copy'
-  }
-
-  const updateHiddenInputValue = (id) => {
-    const input = document.querySelector(id + '__input')
-    const hidden = document.querySelector(id + '__hidden')
-
-    const newValue = input.value.length > 0 ? input.value : 'random'
-    hidden.value = 'https://joeschmoe.io/api/v1/' + newValue
-  }
-
-  const updateImage = (id) => {
-    const input = document.querySelector(id + '__input')
-    const img = document.querySelector(id + '__img')
-    img.src = '/api/local/' + (input.value.length ? input.value : 'random')
-  }
-
   const copyInputValue = (id) => {
     const button = document.querySelector(id + '__copy-btn')
     const hidden = document.querySelector(id + '__hidden')
